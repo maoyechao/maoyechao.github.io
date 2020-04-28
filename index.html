@@ -152,6 +152,79 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-leetcode-week3-minimum-path-sum" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/28/leetcode-week3-minimum-path-sum/">leetcode-week3-minimum-path-sum</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/28/leetcode-week3-minimum-path-sum/" class="archive-article-date">
+  	<time datetime="2020-04-28T05:07:47.132Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: leetcode week3 minimum path sum<br>date: 2020-04-28 13:07:47<br>tags:<br>Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.</p>
+<p>Note: You can only move either down or right at any point in time.</p>
+<p>Example:</p>
+<p>Input:<br>[<br>  [1,3,1],<br>  [1,5,1],<br>  [4,2,1]<br>]<br>Output: 7<br>Explanation: Because the path 1→3→1→1→1 minimizes the sum.</p>
+<p>—var minPathSum = function (grid) {<br>        let m = grid.length<br>        let n = grid[0].length<br>          for (let index = 1; index &lt; m; index++) {<br>            grid[index][0] += grid[index-1][0];<br>          }<br>          for (let index = 1; index &lt; n; index++) {<br>            grid[0][index] += grid[0][index-1];<br>          }<br>        for (let i = 1; i &lt; m; i++) {<br>          for (let j = 1; j &lt; n; j++) {<br>            grid[i][j] += Math.min(grid[i][j-1],grid[i-1][j])</p>
+<pre><code>    }
+
+  }
+  console.log(grid[m-1][n-1]);
+  return grid[m-1][n-1]
+};</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/28/leetcode-week3-minimum-path-sum/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数据可视化Taleau" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
