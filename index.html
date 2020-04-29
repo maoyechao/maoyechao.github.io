@@ -152,6 +152,92 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Week-3-Number-of-Islands" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/29/Week-3-Number-of-Islands/">Week 3 Number of Islands</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/29/Week-3-Number-of-Islands/" class="archive-article-date">
+  	<time datetime="2020-04-29T05:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Given a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.<br><img src="../images/Screen%20Shot%202020-04-29%20at%201.04.58%20pm.png" alt="Image text"> example</p>
+<p>/**</p>
+<ul>
+<li>@param {character[][]} grid</li>
+<li>@return {number}</li>
+<li>/<br>var numIslands = function(grid) {<br>  if (grid.length == 0) return 0;<br>  let m = grid.length;<br>  let n = grid[0].length;<br>  let islands = 0;<br>  for (let i = 0; i &lt; m; i++) {<pre><code>for (let j = 0; j &lt; n; j++) {
+  if (grid[i][j] == &quot;1&quot;) {
+    islands++
+    dfs(grid,i,j);
+  }
+}</code></pre>  }<br>  return islands;</li>
+</ul>
+<p>};<br>function dfs(grid, i, j) {<br>      if (i &lt; 0  || j &lt; 0 || i == grid.length || j == grid[0].length) return;<br>      if ( grid[i][j] == “0” ) return;<br>      grid[i][j] = “0”;<br>      dfs(grid,i-1,j);<br>      dfs(grid,i+1,j);<br>      dfs(grid,i,j-1);<br>      dfs(grid,i,j+1)<br>    };</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">中等难度</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/29/Week-3-Number-of-Islands/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-leetcode-week3-minimum-path-sum" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -530,6 +616,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">中等难度</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">澳大利亚大堡礁白化率</a>
