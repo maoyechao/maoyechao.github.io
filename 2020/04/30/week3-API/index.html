@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>week3 cunstruct binary search tree from preorder traversal | Hexo</title>
+  <title>week3 API | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Return the root node of a binary search tree that matches the given preorder traversal. (Recall that a binary search tree is a binary tree where for every node, any descendant of node.left has a value">
+  <meta name="description" content="(This problem is an interactive problem.) A binary matrix means that all elements are 0 or 1. For each individual row of the matrix, this row is sorted in non-decreasing order. Given a row-sorted bina">
 <meta property="og:type" content="article">
-<meta property="og:title" content="week3 cunstruct binary search tree from preorder traversal">
-<meta property="og:url" content="http://yoursite.com/2020/04/30/week3-cunstruct-binary-search-tree-from-preorder-traversal/index.html">
+<meta property="og:title" content="week3 API">
+<meta property="og:url" content="http://yoursite.com/2020/04/30/week3-API/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Return the root node of a binary search tree that matches the given preorder traversal. (Recall that a binary search tree is a binary tree where for every node, any descendant of node.left has a value">
+<meta property="og:description" content="(This problem is an interactive problem.) A binary matrix means that all elements are 0 or 1. For each individual row of the matrix, this row is sorted in non-decreasing order. Given a row-sorted bina">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://datavasulisation.oss-cn-shanghai.aliyuncs.com/blog/1266.png">
-<meta property="article:published_time" content="2020-04-30T07:20:36.000Z">
-<meta property="article:modified_time" content="2020-04-30T13:18:20.248Z">
+<meta property="article:published_time" content="2020-04-30T15:01:22.000Z">
+<meta property="article:modified_time" content="2020-04-30T15:33:10.796Z">
 <meta property="article:author" content="北行四十一米">
-<meta property="article:tag" content="递归与循环">
+<meta property="article:tag" content="Leftmost Column with at Least a One">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://datavasulisation.oss-cn-shanghai.aliyuncs.com/blog/1266.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -157,33 +155,33 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-week3-cunstruct-binary-search-tree-from-preorder-traversal" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-week3-API" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      week3 cunstruct binary search tree from preorder traversal
+      week3 API
     </h1>
   
 
         
-        <a href="/2020/04/30/week3-cunstruct-binary-search-tree-from-preorder-traversal/" class="archive-article-date">
-  	<time datetime="2020-04-30T07:20:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
+        <a href="/2020/04/30/week3-API/" class="archive-article-date">
+  	<time datetime="2020-04-30T15:01:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Return the root node of a binary search tree that matches the given preorder traversal.</p>
-<p>(Recall that a binary search tree is a binary tree where for every node, any descendant of node.left has a value &lt; node.val, and any descendant of node.right has a value &gt; node.val.  Also recall that a preorder traversal displays the value of the node first, then traverses node.left, then traverses node.right.)</p>
-<p>It’s guaranteed that for the given test cases there is always possible to find a binary search tree with the given requirements.</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Example <span class="number">1</span>:</span><br><span class="line">Input: [<span class="number">8</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="number">10</span>,<span class="number">12</span>]</span><br><span class="line">Output: [<span class="number">8</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="literal">null</span>,<span class="number">12</span>]</span><br></pre></td></tr></table></figure>
-<p><img src="https://datavasulisation.oss-cn-shanghai.aliyuncs.com/blog/1266.png" alt="image text"></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">TreeNode</span>(<span class="params">val, left, right</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.val = (val===<span class="literal">undefined</span> ? <span class="number">0</span> : val)</span><br><span class="line">      <span class="keyword">this</span>.left = (left===<span class="literal">undefined</span> ? <span class="literal">null</span> : left)</span><br><span class="line">      <span class="keyword">this</span>.right = (right===<span class="literal">undefined</span> ? <span class="literal">null</span> : right)</span><br><span class="line">  &#125;</span><br><span class="line">      <span class="keyword">var</span> bstFromPreorder = <span class="function"><span class="keyword">function</span> (<span class="params">preorder</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> len = preorder.length;</span><br><span class="line">        <span class="keyword">if</span> (len === <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Build the tree. */</span></span><br><span class="line">        <span class="keyword">var</span> tree = <span class="keyword">new</span> TreeNode(preorder[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">          <span class="keyword">let</span> v = preorder[i];</span><br><span class="line">          <span class="keyword">let</span> curr = tree;</span><br><span class="line">          <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (v &lt; curr.val) &#123;</span><br><span class="line">              <span class="keyword">if</span> (curr.left === <span class="literal">null</span>) &#123;</span><br><span class="line">                curr.left = <span class="keyword">new</span> TreeNode(v);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">              &#125; <span class="keyword">else</span> curr = curr.left;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="keyword">if</span> (curr.right == <span class="literal">null</span>) &#123;</span><br><span class="line">                curr.right = <span class="keyword">new</span> TreeNode(v);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">              &#125; <span class="keyword">else</span> curr = curr.right;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(tree);</span><br><span class="line">        <span class="keyword">return</span> tree;</span><br><span class="line">      &#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">function</span> TreeNode(val, <span class="built_in">left</span>, <span class="built_in">right</span>) &#123;</span><br><span class="line">      this.val = (val===undefined ? <span class="number">0</span> : val)</span><br><span class="line">      this.<span class="built_in">left</span> = (<span class="built_in">left</span>===undefined ? <span class="literal">null</span> : <span class="built_in">left</span>)</span><br><span class="line">      this.<span class="built_in">right</span> = (<span class="built_in">right</span>===undefined ? <span class="literal">null</span> : <span class="built_in">right</span>)</span><br><span class="line">  &#125;</span><br><span class="line">var bstFromPreorder = <span class="keyword">function</span> (preorder) &#123;</span><br><span class="line">        <span class="keyword">if</span> (preorder.length === <span class="number">0</span>) return <span class="literal">null</span></span><br><span class="line">        <span class="keyword">if</span> (preorder.length === <span class="number">1</span>) return <span class="keyword">new</span> TreeNode(preorder[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">let</span> root = <span class="keyword">new</span> TreeNode(preorder[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">let</span> <span class="built_in">left</span> = bstFromPreorder(preorder.slice(<span class="number">1</span>).<span class="built_in">filter</span>(<span class="keyword">each</span> =&gt; <span class="keyword">each</span> &lt; preorder[<span class="number">0</span>]))</span><br><span class="line">        <span class="keyword">let</span> <span class="built_in">right</span> = bstFromPreorder(preorder.slice(<span class="number">1</span>).<span class="built_in">filter</span>(<span class="keyword">each</span> =&gt; <span class="keyword">each</span> &gt; preorder[<span class="number">0</span>]))</span><br><span class="line">        <span class="keyword">if</span> (root) root.<span class="built_in">left</span> = <span class="built_in">left</span>;</span><br><span class="line">        <span class="keyword">if</span> (root) root.<span class="built_in">right</span> = <span class="built_in">right</span>;</span><br><span class="line">        return root</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <p>(This problem is an interactive problem.)</p>
+<p>A binary matrix means that all elements are 0 or 1. For each individual row of the matrix, this row is sorted in non-decreasing order.</p>
+<p>Given a row-sorted binary matrix binaryMatrix, return leftmost column index(0-indexed) with at least a 1 in it. If such index doesn’t exist, return -1.</p>
+<p>You can’t access the Binary Matrix directly.  You may only access the matrix using a BinaryMatrix interface:</p>
+<p>BinaryMatrix.get(row, col) returns the element of the matrix at index (row, col) (0-indexed).<br>BinaryMatrix.dimensions() returns a list of 2 elements [rows, cols], which means the matrix is rows * cols.<br>Submissions making more than 1000 calls to BinaryMatrix.get will be judged Wrong Answer.  Also, any solutions that attempt to circumvent the judge will result in disqualification.</p>
+<p>For custom testing purposes you’re given the binary matrix mat as input in the following four examples. You will not have access the binary matrix directly.</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>// This is </span>the<span class="markdown"> BinaryMatrix's API interface.</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>// You </span>should<span class="markdown"> not implement it, or speculate about its implementation</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>function BinaryMatrix() &#123;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>@param &#123;integer&#125; row, col</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>@return &#123;integer&#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>this.get = function(row, col) &#123;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *         </span>...</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>&#125;;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"> *</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>@return &#123;[integer, integer]&#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>this.dimensions = function() &#123;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *         </span>...</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>&#125;;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>&#125;;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"> */</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>@param &#123;BinaryMatrix&#125; binaryMatrix</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>@return &#123;number&#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"> */</span></span></span><br><span class="line"><span class="keyword">var</span> leftMostColumnWithOne = function (binaryMatrix) &#123;</span><br><span class="line">        let rowsNumber = binaryMatrix.dimensions()[<span class="number">0</span>];</span><br><span class="line">    <span class="comment">//console.log(rowsNumber);</span></span><br><span class="line">        let colsNumber = binaryMatrix.dimensions()[<span class="number">1</span>];</span><br><span class="line">       </span><br><span class="line">        let i=<span class="number">0</span>,j=colsNumber<span class="number">-1</span>,leftMostOne=<span class="number">-1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(i&lt;rowsNumber &amp;&amp; j&gt;=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            let result=binaryMatrix.<span class="keyword">get</span>(i,j);</span><br><span class="line">            <span class="keyword">if</span>(result==<span class="number">0</span>)i++;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                leftMostOne=j;</span><br><span class="line">                j--;</span><br><span class="line">             &#125;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> leftMostOne;</span><br><span class="line">    </span><br><span class="line">      &#125;;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -217,7 +215,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">递归与循环</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Leftmost Column with at Least a One</a>
         		</li>
       		
 		</ul>
@@ -273,7 +271,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/30/week3-cunstruct-binary-search-tree-from-preorder-traversal/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/30/week3-API/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +285,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/30/%E9%9A%8F%E6%83%B3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          随想
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/30/week3-Search-in-Rotated-Sorted-Array/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">week3 Search in Rotated Sorted Array</div>
+    <a href="/2020/04/30/%E9%9A%8F%E6%83%B3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">随想</div>
       <i class="icon-circle-right"></i>
     </a>
   
