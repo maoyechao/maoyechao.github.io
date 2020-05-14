@@ -152,6 +152,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-day-3-dp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/14/day-3-dp/">day-3-dp</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/14/day-3-dp/" class="archive-article-date">
+  	<time datetime="2020-05-14T14:42:17.500Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: day-3 dp<br>date: 2020-05-14 22:42:17<br>tags: 动态规划</p>
+<p>给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
+<p>示例:</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-3</span>,<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-5</span>,<span class="number">4</span>],</span><br><span class="line">输出: <span class="number">6</span></span><br><span class="line">解释: 连续子数组 [<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>] 的和最大，为 <span class="number">6</span>。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> pre = <span class="number">0</span>, maxAns = nums[<span class="number">0</span>];</span><br><span class="line">    nums.forEach(<span class="function">(<span class="params">x</span>) =&gt;</span> &#123;</span><br><span class="line">        pre = <span class="built_in">Math</span>.max(pre + x, x);</span><br><span class="line">        maxAns = <span class="built_in">Math</span>.max(maxAns, pre);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> maxAns;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/14/day-3-dp/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-day2-二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -886,108 +955,6 @@ else {
 
 
   
-    <article id="post-week3-Search-in-Rotated-Sorted-Array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/30/week3-Search-in-Rotated-Sorted-Array/">week3 Search in Rotated Sorted Array</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/30/week3-Search-in-Rotated-Sorted-Array/" class="archive-article-date">
-  	<time datetime="2020-04-30T06:15:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand. (i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).</p>
-<p>You are given a target value to search. If found in the array return its index, otherwise return -1.</p>
-<p>You may assume no duplicate exists in the array.</p>
-<p>Your algorithm’s runtime complexity must be in the order of O(log n).</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Example <span class="number">1</span>:</span><br><span class="line">Input: nums = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>], target = <span class="number">0</span></span><br><span class="line">Output: <span class="number">4</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Example <span class="number">2</span>:</span><br><span class="line">Input: nums = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>], target = <span class="number">3</span></span><br><span class="line">Output: <span class="number">-1</span></span><br></pre></td></tr></table></figure>
-<pre><code>var search = function (nums, target) {
-        let start = 0;
-        let end = nums.length - 1;
-        while (end - start &gt;= 0) {
-          mid = Math.floor((end + start) / 2);
-          if (nums[mid] == target) return mid;
-          if (nums[mid] &gt;= nums[start]) {
-            if (target &lt; nums[mid] &amp;&amp; target &gt;= nums[start]) {
-              end = mid - 1;
-            } else {
-              start = mid + 1;
-            }
-          }
-          else {
-            if (target &lt;= nums[end] &amp;&amp; target &gt; nums[mid]) {
-              start = mid + 1;
-            } else {
-              end = mid - 1;
-            }
-          }
-        }
-        return -1;
-      };
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">二分法查找</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/30/week3-Search-in-Rotated-Sorted-Array/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1089,7 +1056,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">整数反转</a>
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">语义化标签</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1097,7 +1068,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">语义化标签</a>
+                <a href="javascript:void(0)" class="js-tag color5">整数反转</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Leftmost Column with at Least a One</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">按位操作符</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1109,19 +1088,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">按位操作符</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Leftmost Column with at Least a One</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">map()</a>
+                <a href="javascript:void(0)" class="js-tag color4">this.capacity</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1129,7 +1096,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">this.capacity</a>
+                <a href="javascript:void(0)" class="js-tag color1">map()</a>
               </li>
              
               <li class="article-tag-list-item">
