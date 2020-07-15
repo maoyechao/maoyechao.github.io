@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>day-3-dp | Hexo</title>
+  <title>剑指offer | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: day-3 dpdate: 2020-05-14 22:42:17tags: 动态规划 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。 示例: 123输入: [-2,1,-3,4,-1,2,1,-5,4],输出: 6解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。  123456789101112&#x2F;** * @pa">
+  <meta name="description" content="剑指 Offer 11. 旋转数组的最小数字把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一个旋转，该数组的最小值为 1。 示例 1： 123输入：[3,4,5,1,2]输出：1示例 2：  输入：[2,2,2,0,1]输出：0 12  &#x2F;**  @par">
 <meta property="og:type" content="article">
-<meta property="og:title" content="day-3-dp">
-<meta property="og:url" content="http://yoursite.com/2020/05/14/day-3-dp/index.html">
+<meta property="og:title" content="剑指offer">
+<meta property="og:url" content="http://yoursite.com/2020/07/15/%E5%89%91%E6%8C%87offer/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="title: day-3 dpdate: 2020-05-14 22:42:17tags: 动态规划 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。 示例: 123输入: [-2,1,-3,4,-1,2,1,-5,4],输出: 6解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。  123456789101112&#x2F;** * @pa">
+<meta property="og:description" content="剑指 Offer 11. 旋转数组的最小数字把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一个旋转，该数组的最小值为 1。 示例 1： 123输入：[3,4,5,1,2]输出：1示例 2：  输入：[2,2,2,0,1]输出：0 12  &#x2F;**  @par">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-14T14:42:17.500Z">
-<meta property="article:modified_time" content="2020-05-14T14:43:37.408Z">
+<meta property="article:published_time" content="2020-07-15T06:26:04.000Z">
+<meta property="article:modified_time" content="2020-07-15T06:27:37.702Z">
 <meta property="article:author" content="北行四十一米">
 <meta name="twitter:card" content="summary">
   
@@ -154,33 +154,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-day-3-dp" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-剑指offer" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      day-3-dp
+      剑指offer
     </h1>
   
 
         
-        <a href="/2020/05/14/day-3-dp/" class="archive-article-date">
-  	<time datetime="2020-05-14T14:42:17.500Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
+        <a href="/2020/07/15/%E5%89%91%E6%8C%87offer/" class="archive-article-date">
+  	<time datetime="2020-07-15T06:26:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: day-3 dp<br>date: 2020-05-14 22:42:17<br>tags: 动态规划</p>
-<p>给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
-<p>示例:</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-3</span>,<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-5</span>,<span class="number">4</span>],</span><br><span class="line">输出: <span class="number">6</span></span><br><span class="line">解释: 连续子数组 [<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>] 的和最大，为 <span class="number">6</span>。</span><br></pre></td></tr></table></figure>
+        <p>剑指 Offer 11. 旋转数组的最小数字<br>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一个旋转，该数组的最小值为 1。</p>
+<p>示例 1：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">输出：<span class="number">1</span></span><br><span class="line">示例 <span class="number">2</span>：</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> pre = <span class="number">0</span>, maxAns = nums[<span class="number">0</span>];</span><br><span class="line">    nums.forEach(<span class="function">(<span class="params">x</span>) =&gt;</span> &#123;</span><br><span class="line">        pre = <span class="built_in">Math</span>.max(pre + x, x);</span><br><span class="line">        maxAns = <span class="built_in">Math</span>.max(maxAns, pre);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> maxAns;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>输入：[2,2,2,0,1]<br>输出：0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>/**</p>
+<ul>
+<li>@param {number[]} numbers</li>
+<li>@return {number}<br>*/<br>var minArray = function (numbers) {<br>if (numbers == []) {<br>return<br>}<br>if (numbers.length == 1) {<br>return numbers[0];<br>}<br>let a=0,b=numbers.length-1;<br>if (numbers[a] == numbers[Math.ceil((a+b)/2)] &amp;&amp; numbers[Math.ceil((a+b)/2)] == numbers[b]) {<br>return Math.min(…numbers);<br>}<br>while ((b-a) &gt; 1) {<br>if (numbers[a] &lt;= numbers[Math.ceil((a+b)/2)] &amp;&amp; numbers[Math.ceil((a+b)/2)] &gt; numbers[b]) {<br>a = Math.ceil((a+b)/2);<br>} else {<br>b = Math.ceil((a+b)/2);<br>}<br>}<br>return Math.min(numbers[a],numbers[b]);<br>};</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
 
@@ -260,7 +266,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/14/day-3-dp/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/15/%E5%89%91%E6%8C%87offer/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +280,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/16/day5-%E8%AF%BB%E4%B8%8E%E5%86%99/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          day5 读与写
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/13/day2-%E4%BA%8C%E5%8F%89%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">day2 二叉树</div>
+    <a href="/2020/05/16/day5-%E8%AF%BB%E4%B8%8E%E5%86%99/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">day5 读与写</div>
       <i class="icon-circle-right"></i>
     </a>
   
