@@ -152,6 +152,126 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-初识React" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/28/%E5%88%9D%E8%AF%86React/">初识React</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/28/%E5%88%9D%E8%AF%86React/" class="archive-article-date">
+  	<time datetime="2020-07-28T06:49:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="初识-React"><a href="#初识-React" class="headerlink" title="初识 React"></a>初识 React</h1><h2 id="前期准备工作"><a href="#前期准备工作" class="headerlink" title="前期准备工作"></a>前期准备工作</h2><ol>
+<li>react key points<br>js + css +html<br>webpack<br>官方文档</li>
+</ol>
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>npx create-react-app appName<br>cd appName<br>npm start</p>
+<h2 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h2><p>node_modules: 没必要看的大文件，包括很多依赖<br>public: 入口文件<br>src: 源码文件</p>
+<h2 id="react-基础知识"><a href="#react-基础知识" class="headerlink" title="react 基础知识"></a>react 基础知识</h2><h3 id="JSX-语法介绍"><a href="#JSX-语法介绍" class="headerlink" title="JSX 语法介绍"></a>JSX 语法介绍</h3><p>JSX 语法: JS + XML<br>&lt;&gt;按照 XML 理解<br>{}按照 JS 理解</p>
+<h3 id="元素渲染"><a href="#元素渲染" class="headerlink" title="元素渲染"></a>元素渲染</h3><p>在 function 内调用时间方法</p>
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>组件的后缀可以是 js，也可以是 jsx<br>react 项目由大量组件组成，耦合低<br>function 组件没有 this</p>
+<h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><p>组件的复用性<br>向方法与 class 中传递数据</p>
+<h3 id="事件处理-this-与-bind"><a href="#事件处理-this-与-bind" class="headerlink" title="事件处理 this 与 bind()"></a>事件处理 this 与 bind()</h3><p>1.用 bind(this)使指向从当前方法变成当前组件 2.在 consturctor 中是要 bind(this)统一指向 3.使用箭头函数改变 this 指向<br>总之 this 的指向是个大问题。</p>
+<h3 id="state"><a href="#state" class="headerlink" title="state"></a>state</h3><p>用来代替 DOM 来处理页面中的元素</p>
+<h3 id="React-lifecycle"><a href="#React-lifecycle" class="headerlink" title="React lifecycle"></a>React lifecycle</h3><p>lifecycle is very useful<br>start()<br>constructor(props and state)<br>componentWillMount(): 在组件渲染之前执行<br>render()<br>componentDidMount(): 在组件渲染之后执行</p>
+<h4 id="Running-有三条路供选择"><a href="#Running-有三条路供选择" class="headerlink" title="Running(): 有三条路供选择"></a>Running(): 有三条路供选择</h4><p>1.state changed<br>shouldComponentUpdate(): 返回 true or false, true can update, false cannot update<br>componentWillUpdate(): 数据在改变之前执行(state, props) to render() to componentDidUpdate() to Running()<br>2.props changed<br>componentWillReceiveProps() to shouldComponentUpdate()<br>3.unmount()<br>componentWillUnmount() to END()<br>子传父！！！<br>父传子！！！</p>
+<h3 id="setState-是同步还是异步"><a href="#setState-是同步还是异步" class="headerlink" title="setState 是同步还是异步"></a>setState 是同步还是异步</h3><p>1.setState 会引起视图的重绘 2.在可控的情况下是异步，在非可控的情况下是同步<br>看内部执行过程，更新 state，创建新的 window 节点，决定渲染哪部分，再渲染，再可视<br>(async await promise)</p>
+<h3 id="列表-amp-key"><a href="#列表-amp-key" class="headerlink" title="列表&amp;key"></a>列表&amp;key</h3><p>主要问题是 key<br>我即使不设置 key 在我的 state 更新(往列表中的添加)之后,重新 render 也并不会 render 全部的列表</p>
+<h3 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h3><p>1.受控组件<br>改变 state 2.非受控组件<br>改变 refs(通过 refs 来操控 DOM)</p>
+<h3 id="refs-and-the-dom"><a href="#refs-and-the-dom" class="headerlink" title="refs and the dom"></a>refs and the dom</h3><p>1.管理焦点，文本选择或者媒体播放 2.触发强制动画 3.集成第三方 DOM 库</p>
+<h3 id="状态提升"><a href="#状态提升" class="headerlink" title="状态提升"></a>状态提升</h3><p>多个组件数据交互与汇总<br>onMyEvent()</p>
+<h3 id="composition-vs-inheritance"><a href="#composition-vs-inheritance" class="headerlink" title="composition vs inheritance"></a>composition vs inheritance</h3><p>用组合就够了</p>
+<h3 id="props-type-check"><a href="#props-type-check" class="headerlink" title="props type check"></a>props type check</h3><h3 id="按需加载"><a href="#按需加载" class="headerlink" title="按需加载"></a>按需加载</h3><p>导入的文件比如 css 太大，几万行，就可以通过提前配置文件或者修改 from 的路径</p>
+<h3 id="跨域请求"><a href="#跨域请求" class="headerlink" title="跨域请求"></a>跨域请求</h3><p><a href="https://github.com/facebook/create-react-app/blob/3f699fd08044de9ab0ce1991a66b376d3e1956a8/docusaurus/docs/proxying-api-requests-in-development.md" target="_blank" rel="noopener">https://github.com/facebook/create-react-app/blob/3f699fd08044de9ab0ce1991a66b376d3e1956a8/docusaurus/docs/proxying-api-requests-in-development.md</a></p>
+<ol>
+<li>pakege.json 内加一行配置：”proxy” : “<a href="http://localhost:4000&quot;(例子)，然后fetch内部的url拼接proxy的url">http://localhost:4000&quot;(例子)，然后fetch内部的url拼接proxy的url</a>.</li>
+<li>http-proxy-middleware</li>
+</ol>
+<h3 id="封装网络请求"><a href="#封装网络请求" class="headerlink" title="封装网络请求"></a>封装网络请求</h3><p>一个放网址，一个放方法，一个放网址加方法，再根据方法名调用各种网络请求</p>
+<h2 id="Router"><a href="#Router" class="headerlink" title="Router"></a>Router</h2><ol>
+<li><p>install<br>npm i react-router-dom –save</p>
+</li>
+<li><p>HashRouter and BrowserRouter<br>前者没什么问题表现形式是#/<br>后者没有#，主要用 history.push()方法，但有时会有 404 问题，需要后台重定向</p>
+</li>
+<li><p>Link and a<br>Link 比 a 标签好，因为它可以做额外的事情，不要直接用 a 标签</p>
+</li>
+<li><p>Exact<br>/mine/ucenter 与 mine 共用了 mine 的内容， 在 mine 的 Route 标签内用 Exact<br>在包含的路径都要用 Exact</p>
+</li>
+<li><p>Switch<br>配合 404 页面使用，404 页面不使用路径，switch 访问单一页面，路径对就访问路径页面，路径不对访问 404</p>
+</li>
+<li><p>NavLink 与 Link<br>用 NavLink 代替 Link 能多一点选中高亮的样式，再多一个修改 className 改变的功能，或者在页面中直接用 activeStyle={}来改样式。</p>
+</li>
+<li><p>传参<br>在 url 上跟在/后面，比如/：id?/:name?</p>
+</li>
+<li><p>querystring 读取数据</p>
+</li>
+</ol>
+<h2 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h2><ol>
+<li>redirect 重定向</li>
+<li>props.history.push(‘’) : 页面叠加</li>
+<li>props.history.replace(‘’) : 页面替换</li>
+<li>WithRouter 高阶组件</li>
+<li>Prompt &lt;Prompt when={!!variable} message={‘确定要离开么？’}&gt;</li>
+</ol>
+<h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h2><p>参考地址 ：<a href="https://www.redux.org.cn/" target="_blank" rel="noopener">https://www.redux.org.cn/</a><br><a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html</a></p>
+<p>基础知识点：状态数据–state，组件与组件之间传递数据：props 和回传事件，兄弟之间由共同的父组件或者子组件传递。但是大量的组件之间传递就会变得复杂。</p>
+<h3 id="redux-与-react-redux"><a href="#redux-与-react-redux" class="headerlink" title="redux 与 react-redux"></a>redux 与 react-redux</h3><p>redux: 创建 js 管理状态–createStore<br>react-redux: 为了在 react 中更好的使用–connect,provider</p>
+<h3 id="store"><a href="#store" class="headerlink" title="store"></a>store</h3><p>整个应用的 state 都储存在一颗 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。</p>
+<h2 id="action-与-reducer"><a href="#action-与-reducer" class="headerlink" title="action 与 reducer"></a>action 与 reducer</h2><p>reducer 带有初始 state 与 action(action.type) 在 index.js 内调用，用来 createStore，再用 Provider 包裹。<br>action 在组件内调用,与高阶组件 connect(mapStateToProps,mapDispatchToProps)(App)和用</p>
+<h3 id="reducer-与-action-内的-type-变量最好用一个新的文件夹统一管理。比如常量文件夹里面的-js-文件：export-const-INCREMENT-‘INCREMENT’"><a href="#reducer-与-action-内的-type-变量最好用一个新的文件夹统一管理。比如常量文件夹里面的-js-文件：export-const-INCREMENT-‘INCREMENT’" class="headerlink" title="reducer 与 action 内的 type 变量最好用一个新的文件夹统一管理。比如常量文件夹里面的 js 文件：export const INCREMENT = ‘INCREMENT’;"></a>reducer 与 action 内的 type 变量最好用一个新的文件夹统一管理。比如常量文件夹里面的 js 文件：export const INCREMENT = ‘INCREMENT’;</h3><p>参数传递:onClick={()=&gt; this.props.counterActions.increment(10)</p>
+<h2 id="高阶组件"><a href="#高阶组件" class="headerlink" title="高阶组件"></a>高阶组件</h2><p>可以用作公共组件，比如安卓里的 netWorkconnection 里面一样的部分。后面的输入是前面的输出</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/28/%E5%88%9D%E8%AF%86React/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-剑指offer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -845,85 +965,6 @@ else {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/02/week4-subarray-sums-equals-k/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-week3-API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/30/week3-API/">week3 API</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/30/week3-API/" class="archive-article-date">
-  	<time datetime="2020-04-30T15:01:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>(This problem is an interactive problem.)</p>
-<p>A binary matrix means that all elements are 0 or 1. For each individual row of the matrix, this row is sorted in non-decreasing order.</p>
-<p>Given a row-sorted binary matrix binaryMatrix, return leftmost column index(0-indexed) with at least a 1 in it. If such index doesn’t exist, return -1.</p>
-<p>You can’t access the Binary Matrix directly.  You may only access the matrix using a BinaryMatrix interface:</p>
-<p>BinaryMatrix.get(row, col) returns the element of the matrix at index (row, col) (0-indexed).<br>BinaryMatrix.dimensions() returns a list of 2 elements [rows, cols], which means the matrix is rows * cols.<br>Submissions making more than 1000 calls to BinaryMatrix.get will be judged Wrong Answer.  Also, any solutions that attempt to circumvent the judge will result in disqualification.</p>
-<p>For custom testing purposes you’re given the binary matrix mat as input in the following four examples. You will not have access the binary matrix directly.</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>// This is </span>the<span class="markdown"> BinaryMatrix's API interface.</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>// You </span>should<span class="markdown"> not implement it, or speculate about its implementation</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>function BinaryMatrix() &#123;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>@param &#123;integer&#125; row, col</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>@return &#123;integer&#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>this.get = function(row, col) &#123;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *         </span>...</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>&#125;;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"> *</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>@return &#123;[integer, integer]&#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>this.dimensions = function() &#123;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *         </span>...</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>&#125;;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>&#125;;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"> */</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>@param &#123;BinaryMatrix&#125; binaryMatrix</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>@return &#123;number&#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"> */</span></span></span><br><span class="line"><span class="keyword">var</span> leftMostColumnWithOne = function (binaryMatrix) &#123;</span><br><span class="line">        let rowsNumber = binaryMatrix.dimensions()[<span class="number">0</span>];</span><br><span class="line">    <span class="comment">//console.log(rowsNumber);</span></span><br><span class="line">        let colsNumber = binaryMatrix.dimensions()[<span class="number">1</span>];</span><br><span class="line">       </span><br><span class="line">        let i=<span class="number">0</span>,j=colsNumber<span class="number">-1</span>,leftMostOne=<span class="number">-1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(i&lt;rowsNumber &amp;&amp; j&gt;=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            let result=binaryMatrix.<span class="keyword">get</span>(i,j);</span><br><span class="line">            <span class="keyword">if</span>(result==<span class="number">0</span>)i++;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                leftMostOne=j;</span><br><span class="line">                j--;</span><br><span class="line">             &#125;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> leftMostOne;</span><br><span class="line">    </span><br><span class="line">      &#125;;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Leftmost Column with at Least a One</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/30/week3-API/">展开全文 >></a>
         </p>
       
 
