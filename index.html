@@ -152,6 +152,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-float" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/29/float/">float</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/29/float/" class="archive-article-date">
+  	<time datetime="2020-07-29T08:11:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Float"><a href="#Float" class="headerlink" title="Float"></a>Float</h1><p>浮动是对后面元素的影响,前面的元素浮动就会让后面的元素上升到前面元素的位置，前后元素一起浮动就会让两个元素并列。</p>
+<h2 id="float-left"><a href="#float-left" class="headerlink" title="float:left"></a>float:left</h2><p>1.浮动 2.改行级元素为块级元素</p>
+<h3 id="清除上级元素浮动"><a href="#清除上级元素浮动" class="headerlink" title="清除上级元素浮动"></a>清除上级元素浮动</h3><p>clear:both clear:left clear:right</p>
+<h3 id="overflow-触发-bfc-清除下级元素浮动影响"><a href="#overflow-触发-bfc-清除下级元素浮动影响" class="headerlink" title="overflow 触发 bfc 清除下级元素浮动影响"></a>overflow 触发 bfc 清除下级元素浮动影响</h3><p>overflow：hidden,auto,scroll<br>触发后父级元素就会触发 float 元素的尺寸</p>
+<h3 id="页面布局的最高准则"><a href="#页面布局的最高准则" class="headerlink" title="页面布局的最高准则"></a>页面布局的最高准则</h3><h2 id="有相关性的元素就放到一组，大组套小组"><a href="#有相关性的元素就放到一组，大组套小组" class="headerlink" title="有相关性的元素就放到一组，大组套小组"></a>有相关性的元素就放到一组，大组套小组</h2><p>布局时使用 height,padding,margin 一般会舍弃 height，使用 padding 和 margin 来撑</p>
+<h3 id="shape-outside"><a href="#shape-outside" class="headerlink" title="shape-outside"></a>shape-outside</h3><p>用来做文字环绕,配合 clip-path 使用可以根据图形和图片（png）的形状进行环绕</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/29/float/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CSS盒子模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -178,7 +246,7 @@
 <h3 id="边距合并"><a href="#边距合并" class="headerlink" title="边距合并"></a>边距合并</h3><p>取最大的值</p>
 <h3 id="固定盒子大小"><a href="#固定盒子大小" class="headerlink" title="固定盒子大小"></a>固定盒子大小</h3><p>box-sizing: border-box;但是当内部的元素大小超过盒子的大小时，会突破。可以用 overflow:scroll(auto)（hidden）解决内容溢出,with-space:nowrap;text-overflow:ellipsis;</p>
 <h3 id="元素显示与隐藏"><a href="#元素显示与隐藏" class="headerlink" title="元素显示与隐藏"></a>元素显示与隐藏</h3><p>display:node;display:block;会使空间位丢失<br>visibility: hidden；opacity:0;空间位保存</p>
-<h3 id="自适应"><a href="#自适应" class="headerlink" title="自适应"></a>自适应</h3><p>width:max-content 或者 min-content</p>
+<h3 id="自适应"><a href="#自适应" class="headerlink" title="自适应"></a>自适应</h3><p>width:max-content 或者 min-content<br>块级元素自动 width：100%</p>
 
       
 
@@ -869,95 +937,6 @@ else {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/03/week4-LRU-Cache/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-week4-Bitwise-AND-of-Numbers-Range" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/02/week4-Bitwise-AND-of-Numbers-Range/">week4 Bitwise AND of Numbers Range</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/02/week4-Bitwise-AND-of-Numbers-Range/" class="archive-article-date">
-  	<time datetime="2020-05-02T06:35:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Given a range [m, n] where 0 &lt;= m &lt;= n &lt;= 2147483647, return the bitwise AND of all numbers in this range, inclusive.</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Example <span class="number">1</span>:</span><br><span class="line">Input: [<span class="number">5</span>,<span class="number">7</span>]</span><br><span class="line">Output: <span class="number">4</span></span><br><span class="line"></span><br><span class="line">Example <span class="number">2</span>:</span><br><span class="line">Input: [<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">Output: <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>/**</p>
-<ul>
-<li>@param {number} m</li>
-<li>@param {number} n</li>
-<li>@return {number}</li>
-<li>/<br>var rangeBitwiseAnd = function (m, n) {<pre><code>  let tempWise = 0;
-  while (n != m) {
-    m &gt;&gt;= 1;
-    n &gt;&gt;= 1;
-    tempWise++;
-  }
-  return m &lt;&lt; tempWise;
-};</code></pre>```</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">按位操作符</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/02/week4-Bitwise-AND-of-Numbers-Range/">展开全文 >></a>
         </p>
       
 
