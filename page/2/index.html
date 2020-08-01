@@ -152,6 +152,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-day2-二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/13/day2-%E4%BA%8C%E5%8F%89%E6%A0%91/">day2 二叉树</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/13/day2-%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2020-05-13T15:53:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>给定一个二叉树，检查它是否是镜像对称的。</p>
+<p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    <span class="number">1</span></span><br><span class="line">   / \</span><br><span class="line">  <span class="number">2</span>   <span class="number">2</span></span><br><span class="line"> / \ / \</span><br><span class="line"><span class="number">3</span>  <span class="number">4</span> <span class="number">4</span>  <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    <span class="number">1</span></span><br><span class="line">   / \</span><br><span class="line">  <span class="number">2</span>   <span class="number">2</span></span><br><span class="line">   \   \</span><br><span class="line">   <span class="number">3</span>    <span class="number">3</span></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">进阶：</span><br><span class="line"></span><br><span class="line">你可以运用递归和迭代两种方法解决这个问题吗？</span><br><span class="line"></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">链接：https:<span class="comment">//leetcode-cn.com/problems/symmetric-tree</span></span><br><span class="line">著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+<p>/**</p>
+<ul>
+<li>Definition for a binary tree node.</li>
+<li>function TreeNode(val) {</li>
+<li>this.val = val;</li>
+<li>this.left = this.right = null;</li>
+<li>}</li>
+<li>/<br>/**</li>
+<li>@param {TreeNode} root</li>
+<li>@return {boolean}</li>
+<li>/<br>var isSymmetric = function(root) {<br>  if (root === null) return true;<br>  return help(root.left, root.right);<br>};</li>
+</ul>
+<p>function help(left, right) {<br>    if (left === null &amp;&amp; right === null) {<br>        return true;<br>    }<br>    if (left === null || right === null) {<br>        return false;<br>    }<br>    return left.val === right.val &amp;&amp; help(left.left, right.right) &amp;&amp; help(left.right, right.left);<br>}<br>```</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">低轨</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/13/day2-%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-leetcode-day1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -867,100 +959,6 @@ else {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/30/week3-Search-in-Rotated-Sorted-Array/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HTML-笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/29/HTML-%E7%AC%94%E8%AE%B0/">HTML 笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/29/HTML-%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-04-29T13:33:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code><!DOCTYPE html></p>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>毛烨超</title>
-  <meta name="generator" content="Hexo 4.2.0"></head>
-  <body>
-    <progress value="80"  max="100">测试进度</progress>
-    <strong>测试进度</strong>
-    <em>80%</em>
-    <mark>北行四十一米</mark>
-    <cite>blog.maoyechoa.com</cite>
-    <br/>
-    <blockquote>https:blog.maoyechoa.com</blockquote>
-    <address>宁波余姚</address>
-
-
-<pre><code>&lt;script&gt;
-&lt;/script&gt;</code></pre>  </body>
-</html>
-</code>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">语义化标签</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/HTML-%E7%AC%94%E8%AE%B0/">展开全文 >></a>
         </p>
       
 
