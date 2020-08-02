@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>随想 | Hexo</title>
+  <title>剑指OFFER35复杂的链表复制.md | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="边际效应。">
+  <meta name="description" content="链表节点指向往往是一个 temp 和 head 指向同一个地址，然后让 temp&#x3D;temp.next，这样 head 还是指向原来的头节点。请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指向链表中的任意节点或者 null。 12输入：head &#x3D; [[7,null],[13,0],[11,4">
 <meta property="og:type" content="article">
-<meta property="og:title" content="随想">
-<meta property="og:url" content="http://yoursite.com/2020/04/30/%E9%9A%8F%E6%83%B3/index.html">
+<meta property="og:title" content="剑指OFFER35复杂的链表复制.md">
+<meta property="og:url" content="http://yoursite.com/2020/08/02/%E5%89%91%E6%8C%87OFFER35%E5%A4%8D%E6%9D%82%E7%9A%84%E9%93%BE%E8%A1%A8%E5%A4%8D%E5%88%B6-md/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="边际效应。">
+<meta property="og:description" content="链表节点指向往往是一个 temp 和 head 指向同一个地址，然后让 temp&#x3D;temp.next，这样 head 还是指向原来的头节点。请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指向链表中的任意节点或者 null。 12输入：head &#x3D; [[7,null],[13,0],[11,4">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-30T11:02:08.000Z">
-<meta property="article:modified_time" content="2020-04-30T13:18:55.974Z">
+<meta property="article:published_time" content="2020-08-02T06:28:39.000Z">
+<meta property="article:modified_time" content="2020-08-02T06:46:27.041Z">
 <meta property="article:author" content="北行四十一米">
-<meta property="article:tag" content="努力">
+<meta property="article:tag" content="新建节点 插入节点 分离链表">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -141,27 +141,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-随想" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-剑指OFFER35复杂的链表复制-md" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      随想
+      剑指OFFER35复杂的链表复制.md
     </h1>
   
 
         
-        <a href="/2020/04/30/%E9%9A%8F%E6%83%B3/" class="archive-article-date">
-  	<time datetime="2020-04-30T11:02:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
+        <a href="/2020/08/02/%E5%89%91%E6%8C%87OFFER35%E5%A4%8D%E6%9D%82%E7%9A%84%E9%93%BE%E8%A1%A8%E5%A4%8D%E5%88%B6-md/" class="archive-article-date">
+  	<time datetime="2020-08-02T06:28:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>边际效应。</p>
+        <h2 id="链表节点指向往往是一个-temp-和-head-指向同一个地址，然后让-temp-temp-next，这样-head-还是指向原来的头节点。"><a href="#链表节点指向往往是一个-temp-和-head-指向同一个地址，然后让-temp-temp-next，这样-head-还是指向原来的头节点。" class="headerlink" title="链表节点指向往往是一个 temp 和 head 指向同一个地址，然后让 temp=temp.next，这样 head 还是指向原来的头节点。"></a>链表节点指向往往是一个 temp 和 head 指向同一个地址，然后让 temp=temp.next，这样 head 还是指向原来的头节点。</h2><p>请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指向链表中的任意节点或者 null。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [[<span class="number">7</span>,<span class="literal">null</span>],[<span class="number">13</span>,<span class="number">0</span>],[<span class="number">11</span>,<span class="number">4</span>],[<span class="number">10</span>,<span class="number">2</span>],[<span class="number">1</span>,<span class="number">0</span>]]</span><br><span class="line">输出：[[<span class="number">7</span>,<span class="literal">null</span>],[<span class="number">13</span>,<span class="number">0</span>],[<span class="number">11</span>,<span class="number">4</span>],[<span class="number">10</span>,<span class="number">2</span>],[<span class="number">1</span>,<span class="number">0</span>]]</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">       * // Definition for a Node.</span></span><br><span class="line"><span class="comment">       * function Node(val, next, random) &#123;</span></span><br><span class="line"><span class="comment">       *    this.val = val;</span></span><br><span class="line"><span class="comment">       *    this.next = next;</span></span><br><span class="line"><span class="comment">       *    this.random = random;</span></span><br><span class="line"><span class="comment">       * &#125;;</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * @param &#123;Node&#125; head</span></span><br><span class="line"><span class="comment">       * @return &#123;Node&#125;</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      var copyRandomList = <span class="keyword">function</span> (head) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!head) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">for</span> (</span><br><span class="line">          let <span class="keyword">temp</span> = head, copy = <span class="keyword">null</span>;</span><br><span class="line">          <span class="keyword">temp</span> != <span class="keyword">null</span>;</span><br><span class="line">          <span class="keyword">temp</span> = <span class="keyword">temp</span>.next.next</span><br><span class="line">        ) &#123;</span><br><span class="line">          copy = <span class="built_in">new</span> Node(<span class="keyword">temp</span>.val);</span><br><span class="line">          <span class="keyword">copy</span>.next = <span class="keyword">temp</span>.next;</span><br><span class="line">          <span class="keyword">temp</span>.next = <span class="keyword">copy</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (let <span class="keyword">temp</span> = head; <span class="keyword">temp</span> != <span class="keyword">null</span>; <span class="keyword">temp</span> = <span class="keyword">temp</span>.next.next) &#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="keyword">temp</span>.random) <span class="keyword">temp</span>.next.random = <span class="keyword">temp</span>.random.next;</span><br><span class="line">        &#125;</span><br><span class="line">        let res = head.next;</span><br><span class="line">        <span class="keyword">for</span> (</span><br><span class="line">          let <span class="keyword">temp</span> = head, copy = <span class="keyword">null</span>;</span><br><span class="line">          <span class="keyword">temp</span> != <span class="keyword">null</span> &amp;&amp; <span class="keyword">temp</span>.next != <span class="keyword">null</span>;</span><br><span class="line">        ) &#123;</span><br><span class="line">          copy = <span class="keyword">temp</span>.next;</span><br><span class="line">          <span class="keyword">temp</span>.next = <span class="keyword">copy</span>.next;</span><br><span class="line">          <span class="keyword">temp</span> = <span class="keyword">copy</span>.next;</span><br><span class="line">          <span class="keyword">if</span> (!<span class="keyword">temp</span>) break;</span><br><span class="line">          <span class="keyword">copy</span>.next = <span class="keyword">temp</span>.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">      &#125;;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -196,7 +201,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">努力</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">新建节点 插入节点 分离链表</a>
         		</li>
       		
 		</ul>
@@ -252,7 +257,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/30/%E9%9A%8F%E6%83%B3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/02/%E5%89%91%E6%8C%87OFFER35%E5%A4%8D%E6%9D%82%E7%9A%84%E9%93%BE%E8%A1%A8%E5%A4%8D%E5%88%B6-md/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -266,18 +271,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/30/week3-API/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          week3 API
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/30/week3-cunstruct-binary-search-tree-from-preorder-traversal/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">week3 cunstruct binary search tree from preorder traversal</div>
+    <a href="/2020/08/01/%E5%A5%87%E5%AE%89%E4%BF%A1%E7%AC%94%E8%AF%95-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React租房系统.md</div>
       <i class="icon-circle-right"></i>
     </a>
   
