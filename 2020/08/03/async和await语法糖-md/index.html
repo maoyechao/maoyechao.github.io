@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>React租房系统.md | Hexo</title>
+  <title>async和await语法糖.md | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="React租房系统.md">
-<meta property="og:url" content="http://yoursite.com/2020/08/01/%E5%A5%87%E5%AE%89%E4%BF%A1%E7%AC%94%E8%AF%95-md/index.html">
+  <meta name="description" content="asyncPromise 的语法糖 12345678910async function hd() &amp;#123;  return new Promise((resolve) &#x3D;&gt; &amp;#123;    setTimeout(() &#x3D;&gt; &amp;#123;      resolve(&quot;text&quot;);    &amp;#125;, 2000);  &amp;#125;);&amp;#125;console.log(hd()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="async和await语法糖.md">
+<meta property="og:url" content="http://yoursite.com/2020/08/03/async%E5%92%8Cawait%E8%AF%AD%E6%B3%95%E7%B3%96-md/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="asyncPromise 的语法糖 12345678910async function hd() &amp;#123;  return new Promise((resolve) &#x3D;&gt; &amp;#123;    setTimeout(() &#x3D;&gt; &amp;#123;      resolve(&quot;text&quot;);    &amp;#125;, 2000);  &amp;#125;);&amp;#125;console.log(hd()">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-08-01T10:51:09.000Z">
-<meta property="article:modified_time" content="2020-08-01T13:51:27.828Z">
+<meta property="article:published_time" content="2020-08-03T12:59:18.000Z">
+<meta property="article:modified_time" content="2020-08-03T15:30:48.942Z">
 <meta property="article:author" content="北行四十一米">
+<meta property="article:tag" content="Promise详解二">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -132,27 +135,38 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-奇安信笔试-md" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-async和await语法糖-md" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      React租房系统.md
+      async和await语法糖.md
     </h1>
   
 
         
-        <a href="/2020/08/01/%E5%A5%87%E5%AE%89%E4%BF%A1%E7%AC%94%E8%AF%95-md/" class="archive-article-date">
-  	<time datetime="2020-08-01T10:51:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-01</time>
+        <a href="/2020/08/03/async%E5%92%8Cawait%E8%AF%AD%E6%B3%95%E7%B3%96-md/" class="archive-article-date">
+  	<time datetime="2020-08-03T12:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="async"><a href="#async" class="headerlink" title="async"></a>async</h2><p>Promise 的语法糖</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">hd</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(<span class="string">"text"</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(hd());</span><br><span class="line">hd().then(<span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(v));</span><br><span class="line"><span class="string">``</span><span class="string">`</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="await"><a href="#await" class="headerlink" title="await"></a>await</h2><p>then() 的语法糖</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(</span><br><span class="line">    <span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">      setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        resolve(<span class="string">"text"</span>);</span><br><span class="line">      &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
+
+<h2 id="并行操作"><a href="#并行操作" class="headerlink" title="并行操作"></a>并行操作</h2><p>希望两个 await 同时完成；开始时两个 Promise 的 await 是分开写的，有一个先后关系，合并后同时了。<br>async function hd() {<br>let res = await Promise.all([Promise, Promise]);<br>clg(res)<br>}</p>
+<h2 id="fetch-获得位置"><a href="#fetch-获得位置" class="headerlink" title="fetch 获得位置"></a>fetch 获得位置</h2><p>用变量来接收 await 的返回值,并且在页面中显示</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"ok"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">position</span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">try</span> &#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">let</span> res = <span class="keyword">await</span> fetch(</span></span><br><span class="line"><span class="javascript">            <span class="string">`https://api.opencagedata.com/geocode/v1/json?q=<span class="subst">$&#123;position&#125;</span>&amp;key=452b578e138d471ca42283b6777f8ad7`</span>,</span></span><br><span class="line">            &#123;</span><br><span class="line"><span class="actionscript">              method: <span class="string">"GET"</span>,</span></span><br><span class="line"><span class="actionscript">              mode: <span class="string">"cors"</span>,</span></span><br><span class="line">            &#125;</span><br><span class="line">          );</span><br><span class="line"><span class="javascript">          <span class="keyword">let</span> json = <span class="keyword">await</span> res.json();</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">"ok"</span>).innerHTML = <span class="keyword">await</span> json.results[<span class="number">0</span>]</span></span><br><span class="line">            .formatted;</span><br><span class="line"><span class="actionscript">        &#125; <span class="keyword">catch</span> (error) &#123;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(error);</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="string">"上面的await执行完才会执行这段代码"</span>);</span></span><br><span class="line">      &#125;</span><br><span class="line"><span class="actionscript">      <span class="keyword">get</span>(<span class="string">"66 Heyi Road, Haishu District, Ningbo"</span>);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -181,6 +195,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Promise详解二</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -231,7 +256,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/01/%E5%A5%87%E5%AE%89%E4%BF%A1%E7%AC%94%E8%AF%95-md/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/03/async%E5%92%8Cawait%E8%AF%AD%E6%B3%95%E7%B3%96-md/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -245,18 +270,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/08/02/%E5%89%91%E6%8C%87OFFER35%E5%A4%8D%E6%9D%82%E7%9A%84%E9%93%BE%E8%A1%A8%E5%A4%8D%E5%88%B6-md/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          剑指OFFER35复杂的链表复制
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/30/%E5%89%91%E6%8C%87OFFER34%E6%95%B0%E7%BB%84%E6%B7%B1%E6%8B%B7%E8%B4%9D-md/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">剑指OFFER34数组深拷贝.md</div>
+    <a href="/2020/08/03/Promise%E8%AF%A6%E8%A7%A3%E4%B8%80-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Promise详解一</div>
       <i class="icon-circle-right"></i>
     </a>
   
