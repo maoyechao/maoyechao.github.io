@@ -132,6 +132,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Promise详解一-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/03/Promise%E8%AF%A6%E8%A7%A3%E4%B8%80-md/">Promise详解一.md</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/03/Promise%E8%AF%A6%E8%A7%A3%E4%B8%80-md/" class="archive-article-date">
+  	<time datetime="2020-08-03T08:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Promise-详解-一"><a href="#Promise-详解-一" class="headerlink" title="Promise 详解 一"></a>Promise 详解 一</h1><h2 id="微任务处理机制"><a href="#微任务处理机制" class="headerlink" title="微任务处理机制"></a>微任务处理机制</h2><p>会生产出微任务(.then())，微任务有一个微任务队列(.then().then().then())。</p>
+<h2 id="宏任务与微任务执行顺序"><a href="#宏任务与微任务执行顺序" class="headerlink" title="宏任务与微任务执行顺序"></a>宏任务与微任务执行顺序</h2><p>new Promise()是同步执行的。.then 被通知执行（执行回调函数）后是异步（微任务）执行的。微任务之后在执行宏任务。</p>
+        
+          <a class="article-more-a" href="/2020/08/03/Promise%E8%AF%A6%E8%A7%A3%E4%B8%80-md/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">代理对象(代理一个值)</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/03/Promise%E8%AF%A6%E8%A7%A3%E4%B8%80-md/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-剑指OFFER35复杂的链表复制-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -139,7 +216,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/02/%E5%89%91%E6%8C%87OFFER35%E5%A4%8D%E6%9D%82%E7%9A%84%E9%93%BE%E8%A1%A8%E5%A4%8D%E5%88%B6-md/">剑指OFFER35复杂的链表复制.md</a>
+      <a class="article-title" href="/2020/08/02/%E5%89%91%E6%8C%87OFFER35%E5%A4%8D%E6%9D%82%E7%9A%84%E9%93%BE%E8%A1%A8%E5%A4%8D%E5%88%B6-md/">剑指OFFER35复杂的链表复制</a>
     </h1>
   
 
@@ -806,82 +883,6 @@
 
 
   
-    <article id="post-day5-读与写" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/16/day5-%E8%AF%BB%E4%B8%8E%E5%86%99/">day5 读与写</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/16/day5-%E8%AF%BB%E4%B8%8E%E5%86%99/" class="archive-article-date">
-  	<time datetime="2020-05-16T07:33:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>解题思路<br>根据之前的 string 写出新的 string。</p>
-<p>代码</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param <span class="built_in">&#123;number</span>&#125; n</span><br><span class="line"> * @<span class="keyword">return</span> <span class="built_in">&#123;string</span>&#125;</span><br><span class="line"> */</span><br><span class="line">    var countAndSay = <span class="keyword">function</span>(n) &#123;</span><br><span class="line">    <span class="keyword">let</span> tempSay = <span class="string">'1'</span>;</span><br><span class="line">    <span class="keyword">let</span> returnValue = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> tempNumber = tempSay[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">let</span><span class="built_in"> count</span> = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt;= tempSay.length; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (tempNumber != tempSay[j]) &#123;</span><br><span class="line">                tempNumber = tempSay[j];</span><br><span class="line">                returnValue +=<span class="built_in"> count</span>;</span><br><span class="line">                returnValue += tempSay[j-<span class="number">1</span>];</span><br><span class="line">               <span class="built_in"> count</span> = <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               <span class="built_in"> count</span> += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        tempSay = returnValue;</span><br><span class="line">        returnValue = <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tempSay;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">两个循环</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/16/day5-%E8%AF%BB%E4%B8%8E%E5%86%99/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1032,6 +1033,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">新建节点 插入节点 分离链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">代理对象(代理一个值)</a>
               </li>
             
             <div class="clearfix"></div>

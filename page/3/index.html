@@ -132,6 +132,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-week3-cunstruct-binary-search-tree-from-preorder-traversal" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/30/week3-cunstruct-binary-search-tree-from-preorder-traversal/">week3 cunstruct binary search tree from preorder traversal</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/30/week3-cunstruct-binary-search-tree-from-preorder-traversal/" class="archive-article-date">
+  	<time datetime="2020-04-30T07:20:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Return the root node of a binary search tree that matches the given preorder traversal.</p>
+<p>(Recall that a binary search tree is a binary tree where for every node, any descendant of node.left has a value &lt; node.val, and any descendant of node.right has a value &gt; node.val.  Also recall that a preorder traversal displays the value of the node first, then traverses node.left, then traverses node.right.)</p>
+<p>It’s guaranteed that for the given test cases there is always possible to find a binary search tree with the given requirements.</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Example <span class="number">1</span>:</span><br><span class="line">Input: [<span class="number">8</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="number">10</span>,<span class="number">12</span>]</span><br><span class="line">Output: [<span class="number">8</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="literal">null</span>,<span class="number">12</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="https://datavasulisation.oss-cn-shanghai.aliyuncs.com/blog/1266.png" alt="image text"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">TreeNode</span>(<span class="params">val, left, right</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.val = (val===<span class="literal">undefined</span> ? <span class="number">0</span> : val)</span><br><span class="line">      <span class="keyword">this</span>.left = (left===<span class="literal">undefined</span> ? <span class="literal">null</span> : left)</span><br><span class="line">      <span class="keyword">this</span>.right = (right===<span class="literal">undefined</span> ? <span class="literal">null</span> : right)</span><br><span class="line">  &#125;</span><br><span class="line">      <span class="keyword">var</span> bstFromPreorder = <span class="function"><span class="keyword">function</span> (<span class="params">preorder</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> len = preorder.length;</span><br><span class="line">        <span class="keyword">if</span> (len === <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Build the tree. */</span></span><br><span class="line">        <span class="keyword">var</span> tree = <span class="keyword">new</span> TreeNode(preorder[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">          <span class="keyword">let</span> v = preorder[i];</span><br><span class="line">          <span class="keyword">let</span> curr = tree;</span><br><span class="line">          <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (v &lt; curr.val) &#123;</span><br><span class="line">              <span class="keyword">if</span> (curr.left === <span class="literal">null</span>) &#123;</span><br><span class="line">                curr.left = <span class="keyword">new</span> TreeNode(v);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">              &#125; <span class="keyword">else</span> curr = curr.left;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="keyword">if</span> (curr.right == <span class="literal">null</span>) &#123;</span><br><span class="line">                curr.right = <span class="keyword">new</span> TreeNode(v);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">              &#125; <span class="keyword">else</span> curr = curr.right;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(tree);</span><br><span class="line">        <span class="keyword">return</span> tree;</span><br><span class="line">      &#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">function</span> TreeNode(val, <span class="built_in">left</span>, <span class="built_in">right</span>) &#123;</span><br><span class="line">      this.val = (val===undefined ? <span class="number">0</span> : val)</span><br><span class="line">      this.<span class="built_in">left</span> = (<span class="built_in">left</span>===undefined ? <span class="literal">null</span> : <span class="built_in">left</span>)</span><br><span class="line">      this.<span class="built_in">right</span> = (<span class="built_in">right</span>===undefined ? <span class="literal">null</span> : <span class="built_in">right</span>)</span><br><span class="line">  &#125;</span><br><span class="line">var bstFromPreorder = <span class="keyword">function</span> (preorder) &#123;</span><br><span class="line">        <span class="keyword">if</span> (preorder.length === <span class="number">0</span>) return <span class="literal">null</span></span><br><span class="line">        <span class="keyword">if</span> (preorder.length === <span class="number">1</span>) return <span class="keyword">new</span> TreeNode(preorder[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">let</span> root = <span class="keyword">new</span> TreeNode(preorder[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">let</span> <span class="built_in">left</span> = bstFromPreorder(preorder.slice(<span class="number">1</span>).<span class="built_in">filter</span>(<span class="keyword">each</span> =&gt; <span class="keyword">each</span> &lt; preorder[<span class="number">0</span>]))</span><br><span class="line">        <span class="keyword">let</span> <span class="built_in">right</span> = bstFromPreorder(preorder.slice(<span class="number">1</span>).<span class="built_in">filter</span>(<span class="keyword">each</span> =&gt; <span class="keyword">each</span> &gt; preorder[<span class="number">0</span>]))</span><br><span class="line">        <span class="keyword">if</span> (root) root.<span class="built_in">left</span> = <span class="built_in">left</span>;</span><br><span class="line">        <span class="keyword">if</span> (root) root.<span class="built_in">right</span> = <span class="built_in">right</span>;</span><br><span class="line">        return root</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">递归与循环</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/30/week3-cunstruct-binary-search-tree-from-preorder-traversal/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-week3-Search-in-Rotated-Sorted-Array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -851,6 +930,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">新建节点 插入节点 分离链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">代理对象(代理一个值)</a>
               </li>
             
             <div class="clearfix"></div>

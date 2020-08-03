@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Hexo</title>
+  <title>Promise详解一.md | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/page/3/index.html">
+  <meta name="description" content="Promise 详解 一微任务处理机制会生产出微任务(.then())，微任务有一个微任务队列(.then().then().then())。 宏任务与微任务执行顺序new Promise()是同步执行的。.then 被通知执行（执行回调函数）后是异步（微任务）执行的。微任务之后在执行宏任务。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Promise详解一.md">
+<meta property="og:url" content="http://yoursite.com/2020/08/03/Promise%E8%AF%A6%E8%A7%A3%E4%B8%80-md/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Promise 详解 一微任务处理机制会生产出微任务(.then())，微任务有一个微任务队列(.then().then().then())。 宏任务与微任务执行顺序new Promise()是同步执行的。.then 被通知执行（执行回调函数）后是异步（微任务）执行的。微任务之后在执行宏任务。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-03T08:39:42.000Z">
+<meta property="article:modified_time" content="2020-08-03T08:41:42.542Z">
 <meta property="article:author" content="北行四十一米">
+<meta property="article:tag" content="代理对象(代理一个值)">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -130,296 +135,186 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Promise详解一-md" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Promise详解一.md
+    </h1>
+  
+
+        
+        <a href="/2020/08/03/Promise%E8%AF%A6%E8%A7%A3%E4%B8%80-md/" class="archive-article-date">
+  	<time datetime="2020-08-03T08:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Promise-详解-一"><a href="#Promise-详解-一" class="headerlink" title="Promise 详解 一"></a>Promise 详解 一</h1><h2 id="微任务处理机制"><a href="#微任务处理机制" class="headerlink" title="微任务处理机制"></a>微任务处理机制</h2><p>会生产出微任务(.then())，微任务有一个微任务队列(.then().then().then())。</p>
+<h2 id="宏任务与微任务执行顺序"><a href="#宏任务与微任务执行顺序" class="headerlink" title="宏任务与微任务执行顺序"></a>宏任务与微任务执行顺序</h2><p>new Promise()是同步执行的。.then 被通知执行（执行回调函数）后是异步（微任务）执行的。微任务之后在执行宏任务。</p>
+<a id="more"></a>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>), <span class="number">0</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123; resolve(); <span class="built_in">console</span>.log(<span class="string">"first"</span>);</span><br><span class="line">      &#125;).then(<span class="function"><span class="params">value</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">"success"</span>); );</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"test"</span>);</span><br><span class="line">输出: first test success setTimeout</span><br></pre></td></tr></table></figure>
+
+<h2 id="宏任务的提升原来是误解"><a href="#宏任务的提升原来是误解" class="headerlink" title="宏任务的提升原来是误解"></a>宏任务的提升原来是误解</h2><p>在宏任务执行过程中创建微任务，所以在宏任务当中的同步任务会在微任务之前执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123; setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;<span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);resolve(); &#125;, <span class="number">0</span>)；</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">"first"</span>);</span><br><span class="line">      &#125;).then(<span class="function"><span class="params">value</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">"success"</span>); );</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"test"</span>);</span><br><span class="line">输出: first test setTimeout success</span><br></pre></td></tr></table></figure>
+
+<h2 id="Promise-then-也是一个-Promise-不然也无法再接-then-链式操作-链表"><a href="#Promise-then-也是一个-Promise-不然也无法再接-then-链式操作-链表" class="headerlink" title="Promise.then()也是一个 Promise,不然也无法再接.then(),链式操作(链表)"></a>Promise.then()也是一个 Promise,不然也无法再接.then(),链式操作(链表)</h2><p>先执行主线程打印，打印的时候因为 p1 是同步执行的，所以有 Promise(<fulfilled>: “ok”),<br>接着打印 p2，p2 是 then，所以是异步的，但他也是一个 promise，所以是 pending，最后打印 p2 里面的 clg(ok)</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> resolve(<span class="string">"ok"</span>));</span><br><span class="line"><span class="keyword">let</span> p2 = p1.then(<span class="function"><span class="params">ok</span> =&gt;</span> <span class="built_in">console</span>.log(ok));</span><br><span class="line"><span class="built_in">console</span>.log(p1);</span><br><span class="line"><span class="built_in">console</span>.log(p2);</span><br><span class="line">输出：<span class="built_in">Promise</span>(&lt;fulfilled&gt;: <span class="string">"ok"</span>)</span><br><span class="line"><span class="built_in">Promise</span>(&lt;pending&gt;)</span><br><span class="line">ok</span><br></pre></td></tr></table></figure>
+
+<p>当 clg 在宏任务中时，先执行 promisi 微任务，所以先 p1,再 p2,p2 打印 value,所以先打印 ok。<br>然后在执行定时器，打印两个 promise，但是两个 promise 都已经执行完了。所以状态都是 fulfilled。<br>然后 clg(p1)是 ok,clg(p2)的时候，p2 已经 clg 在微任务中已经执行过了，所以是 undefined.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> resolve(<span class="string">"ok"</span>));</span><br><span class="line">      <span class="keyword">let</span> p2 = p1.then(<span class="function">(<span class="params">ok</span>) =&gt;</span> <span class="built_in">console</span>.log(ok));</span><br><span class="line">      setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(p1);</span><br><span class="line">        <span class="built_in">console</span>.log(p2);</span><br><span class="line">      &#125;);</span><br><span class="line">输出：</span><br><span class="line">ok</span><br><span class="line"><span class="built_in">Promise</span> &#123;&lt;fulfilled&gt;: <span class="string">"ok"</span>&#125;</span><br><span class="line"><span class="built_in">Promise</span> &#123;&lt;fulfilled&gt;: <span class="literal">undefined</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Promise.resolve(‘ok’)就是对 new Promise((resolve) =&gt; resolve(“ok”))的封装。</strong><br><strong>catch 接在 then()之后能处理错误信息。即使成功状态也可以通过 1 throw new Error(‘fail’) 2 return Promise.reject(‘参数错误’)改成错误信息来接收</strong><br><strong>finaly 接在 then()之后，不管成功失败都会执行。</strong></p>
+<h2 id="Promise-all-Promise-Promise-接口"><a href="#Promise-all-Promise-Promise-接口" class="headerlink" title="Promise.all([Promise, Promise])接口"></a>Promise.all([Promise, Promise])接口</h2><p>同时处理多个 promise 的结果，如果都为成功（解决），then 里面会打印，如果有一个失败了就会跑 catch。<br>Promise.all([Promise, Promise]).then(res =&gt; {<br>clg(res)<br>}).catch(res =&gt; {<br>clg(res)<br>})</p>
+<h3 id="Promise-allSettled-Promise-Promise"><a href="#Promise-allSettled-Promise-Promise" class="headerlink" title="Promise.allSettled([Promise,Promise])"></a>Promise.allSettled([Promise,Promise])</h3><p>同时处理多个 promise 的结果，即使有一个或者多个失败，也会跑 then，只是状态会从 fulfilled 变成 rejected。</p>
+<h3 id="应用：封装一个取用户的方法"><a href="#应用：封装一个取用户的方法" class="headerlink" title="应用：封装一个取用户的方法"></a>应用：封装一个取用户的方法</h3><figure class="highlight plain"><figcaption><span>getUsers(names) &#123;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  let promises &#x3D; names.map(name &#x3D;&gt; &#123;</span><br><span class="line">    return fetch(&#96;query&#96;)</span><br><span class="line">  &#125;);</span><br><span class="line">  return Promise.allSettled(promises);</span><br><span class="line">&#125;</span><br><span class="line">getUsers([&#39;Mao&#39;,&#39;Charlie&#39;]).then(users &#x3D;&gt; &#123;</span><br><span class="line">  console.log(users);</span><br><span class="line">&#125;)&#96;&#96;&#96;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Promise-race-Promise-Promise-哪个-promise-快就取哪个"><a href="#Promise-race-Promise-Promise-哪个-promise-快就取哪个" class="headerlink" title="Promise.race([Promise, Promise])哪个 promise 快就取哪个"></a>Promise.race([Promise, Promise])哪个 promise 快就取哪个</h3><h2 id="Promise-队列"><a href="#Promise-队列" class="headerlink" title="Promise 队列"></a>Promise 队列</h2><p><strong>主要是不断把新产生的 promise 对象赋给最早的那个 promise 对象</strong><br>用来依次处理 promise，比如从后台拿到数据，依次渲染在页面上<br>或者批量从后台拿数据，一次十个，间隔 10 秒等等。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/30/week3-cunstruct-binary-search-tree-from-preorder-traversal/" class="archive-article-date">
-  	<time datetime="2020-04-30T07:20:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/30/week3-cunstruct-binary-search-tree-from-preorder-traversal/">week3 cunstruct binary search tree from preorder traversal</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">递归与循环</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">代理对象(代理一个值)</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/03/Promise%E8%AF%A6%E8%A7%A3%E4%B8%80-md/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/30/week3-Search-in-Rotated-Sorted-Array/" class="archive-article-date">
-  	<time datetime="2020-04-30T06:15:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/02/%E5%89%91%E6%8C%87OFFER35%E5%A4%8D%E6%9D%82%E7%9A%84%E9%93%BE%E8%A1%A8%E5%A4%8D%E5%88%B6-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">剑指OFFER35复杂的链表复制</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/30/week3-Search-in-Rotated-Sorted-Array/">week3 Search in Rotated Sorted Array</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">二分法查找</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/29/HTML-%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-04-29T13:33:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/29/HTML-%E7%AC%94%E8%AE%B0/">HTML 笔记</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">语义化标签</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/29/Week-3-Number-of-Islands/" class="archive-article-date">
-  	<time datetime="2020-04-29T05:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/29/Week-3-Number-of-Islands/">Week 3 Number of Islands</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">中等难度</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/28/leetcode-week3-minimum-path-sum/" class="archive-article-date">
-  	<time datetime="2020-04-28T05:07:47.132Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/28/leetcode-week3-minimum-path-sum/">leetcode-week3-minimum-path-sum</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/04/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96Taleau/" class="archive-article-date">
-  	<time datetime="2020-04-04T15:50:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/04/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96Taleau/">数据可视化Taleau</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">澳大利亚大堡礁白化率</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-03-29T17:38:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/30/hello-world/" class="archive-article-date">
-  	<time datetime="2020-03-29T17:33:46.271Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/30/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><a class="page-number" href="/archives/2020/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
   
 
 
@@ -443,8 +338,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
