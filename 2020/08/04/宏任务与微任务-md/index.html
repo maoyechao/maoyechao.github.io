@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 努力 | Hexo</title>
+  <title>宏任务与微任务.md | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/%E5%8A%AA%E5%8A%9B/index.html">
+  <meta name="description" content="js 是单线程语言，主线程会把耗时操作放到任务队列里面，Promise 放到微任务队列，其他耗时操作基本都放到宏任务队列。 宏任务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="宏任务与微任务.md">
+<meta property="og:url" content="http://yoursite.com/2020/08/04/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1-md/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="js 是单线程语言，主线程会把耗时操作放到任务队列里面，Promise 放到微任务队列，其他耗时操作基本都放到宏任务队列。 宏任务">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/images/Screen%20Shot%202020-08-04%20at%207.29.26%20pm.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/04/images/Screen%20Shot%202020-08-04%20at%207.37.09%20pm.png">
+<meta property="article:published_time" content="2020-08-04T10:45:01.000Z">
+<meta property="article:modified_time" content="2020-08-04T11:39:35.960Z">
 <meta property="article:author" content="北行四十一米">
+<meta property="article:tag" content="宏任务与微任务">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/04/images/Screen%20Shot%202020-08-04%20at%207.29.26%20pm.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -130,60 +138,185 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-宏任务与微任务-md" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/30/%E9%9A%8F%E6%83%B3/" class="archive-article-date">
-  	<time datetime="2020-04-30T11:02:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/30/%E9%9A%8F%E6%83%B3/">随想</a>
+    <h1 class="article-title" itemprop="name">
+      宏任务与微任务.md
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/08/04/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1-md/" class="archive-article-date">
+  	<time datetime="2020-08-04T10:45:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>js 是单线程语言，主线程会把耗时操作放到任务队列里面，Promise 放到微任务队列，其他耗时操作基本都放到宏任务队列。</p>
+<h2 id="宏任务"><a href="#宏任务" class="headerlink" title="宏任务"></a>宏任务</h2><p><img src="../images/Screen%20Shot%202020-08-04%20at%207.29.26%20pm.png" alt="分类"></p>
+<a id="more"></a>
+
+<p>宏任务所处的队列就是宏任务队列</p>
+<p>第一个宏任务队列中只有一个任务：执行主线程上的 JS 代码；如果遇到上方表格中的异步任务，会创建出一个新的宏任务队列，存放这些异步函数执行完成后的回调函数。</p>
+<p>宏任务队列可以有多个</p>
+<p>宏任务中可以创建微任务，但是在宏任务中创建的微任务不会影响当前宏任务的执行。(EXP3)</p>
+<p>当一个宏任务队列中的任务全部执行完后，会查看是否有微任务队列，如果有就会优先执行微任务队列中的所有任务，如果没有就查看是否有宏任务队列</p>
+<h2 id="微任务"><a href="#微任务" class="headerlink" title="微任务"></a>微任务</h2><p><img src="../images/Screen%20Shot%202020-08-04%20at%207.37.09%20pm.png" alt="分类"></p>
+<p>微任务所处的队列就是微任务队列</p>
+<p>在上一个宏任务队列执行完毕后，如果有微任务队列就会执行微任务队列中的所有任务</p>
+<p>new promise((resolve)=&gt;{ 这里的函数在当前队列直接执行 }).then( 这里的函数放在微任务队列中执行 )</p>
+<p>微任务队列上创建的微任务，仍会阻碍后方将要执行的宏任务队列 (EXP2)</p>
+<p>由微任务创建的宏任务，会被丢在异步宏任务队列中执行 (EXP4)</p>
+<h2 id="DOM-渲染任务"><a href="#DOM-渲染任务" class="headerlink" title="DOM 渲染任务"></a>DOM 渲染任务</h2><p>dom 渲染任务也是宏任务，所以当 js 很大且位置在主线程开头时，页面渲染会很慢，所以 js 文件要放到 DOM 渲染模块后面。</p>
+<h2 id="长时间的耗时操作希望把同步代码最后的部分放到前面来完成"><a href="#长时间的耗时操作希望把同步代码最后的部分放到前面来完成" class="headerlink" title="长时间的耗时操作希望把同步代码最后的部分放到前面来完成"></a>长时间的耗时操作希望把同步代码最后的部分放到前面来完成</h2><p><strong>1 任务拆分成一个子任务和几个宏任务</strong></p>
+<p>把前面的任务拆分成一个同步任务加几个宏任务，当第一个同步任务完成后，后面几个都是宏任务，所以会先把同步任务后面的代码执行了，再来进行宏任务。</p>
+<p><strong>2 直接把同步任务前面耗时久的部分放到微任务当中延后执行</strong></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">努力</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">宏任务与微任务</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/04/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1-md/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/08/03/async%E5%92%8Cawait%E8%AF%AD%E6%B3%95%E7%B3%96-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">async和await语法糖.md</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -206,9 +339,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
