@@ -306,7 +306,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="async"><a href="#async" class="headerlink" title="async"></a>async</h2><p>Promise 的语法糖</p>
+        <h2 id="在-script-标签中使用"><a href="#在-script-标签中使用" class="headerlink" title="在 script 标签中使用"></a>在 script 标签中使用</h2><p>![alt 图标](../images/Screen Shot 2020-08-13 at 10.53.21 pm.png “RUNOOB”)</p>
+<h2 id="async"><a href="#async" class="headerlink" title="async"></a>async</h2><p>Promise 的语法糖</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">hd</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(<span class="string">"text"</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(hd());</span><br><span class="line">hd().then(<span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(v));</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2020/08/03/async%E5%92%8Cawait%E8%AF%AD%E6%B3%95%E7%B3%96-md/#more">more >></a>
@@ -517,19 +518,19 @@
 
 
   
-    <article id="post-奇安信笔试-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-React-Login" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/01/%E5%A5%87%E5%AE%89%E4%BF%A1%E7%AC%94%E8%AF%95-md/">React租房系统.md</a>
+      <a class="article-title" href="/2020/08/01/React-Login/">React-Login</a>
     </h1>
   
 
         
-        <a href="/2020/08/01/%E5%A5%87%E5%AE%89%E4%BF%A1%E7%AC%94%E8%AF%95-md/" class="archive-article-date">
+        <a href="/2020/08/01/React-Login/" class="archive-article-date">
   	<time datetime="2020-08-01T10:51:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-01</time>
 </a>
         
@@ -537,7 +538,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>redux<br>react-redux 更好用<br>redux-thunk 异步处理<br>redux-logger 更好的提示<br>redux-devtools-extension 扩展工具</p>
+<h2 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h2><h3 id="combineReducers"><a href="#combineReducers" class="headerlink" title="combineReducers()"></a>combineReducers()</h3><p>生产一个函数，这个函数会调用我的所有 reducer，每个 reducer 都会根据它们的 key 来处理 state 中的一部分。import 了一个以 reducer 名字作为 key 的 object.</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">"redux"</span>;</span><br><span class="line">import auth <span class="keyword">from</span> <span class="string">"./auth"</span>;</span><br><span class="line"></span><br><span class="line">const rootReducer = combineReducers(&#123;</span><br><span class="line">  auth,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">export</span><span class="built_in"> default </span>rootReducer;</span><br></pre></td></tr></table></figure>
+
+<p>通过 export 暴露出每个 reducer 函数。 we can find the auth(pin): {} in the F12 Redux.</p>
+<h2 id="require-exports-和-import-export"><a href="#require-exports-和-import-export" class="headerlink" title="require/exports 和 import/export"></a>require/exports 和 import/export</h2><p><strong>遵循的模块化规范不一样</strong><br>require 出现的时间早，遵循野生规范，CommenJS, AMD, CMD。 import 遵循 ES6 规范。<br>两者的底层逻辑不懂。<br>（问 require 和 import 的区别就是问 commonjs 和 es module 的区别，这两者一个是 api 的规范，一个是语言的语法，所以后者可以做静态分析，基于这个实现 treeshking，同时 es module 会静态的绑定导出的值，而 commonjs 会复制一份。但两者都会做缓存，所以不会有循环引用问题<br>作者：凌霄光<br>链接：<a href="https://juejin.im/post/6844904161847279629" target="_blank" rel="noopener">https://juejin.im/post/6844904161847279629</a><br>来源：掘金）</p>
+<h2 id="route"><a href="#route" class="headerlink" title="route"></a>route</h2><p>创建 components 文件夹，内部放置页面组件与跳转组件。<br>创建 routes.jsx 内部放置所有页面，创建各个页面，创建导航栏组件，在 routes.jsx 内引用。<br>导航栏组件中 import {Link} from ‘react-router-dom’;<br>在 index.js 中导入 Navigation 组件。</p>
+<h2 id="Signup"><a href="#Signup" class="headerlink" title="Signup"></a>Signup</h2><p>发送请求，调用 action 中的包含 dispatch 方法。</p>
+<p>form 表单 onSubmit 操作。是异步操作，所以得放在 actions 里面。<br>actions 里面使用 axios 和 ajax 来请求跨域数据。使用 thunk 的 dispatch 来 return 网络请求的结果对象，对象是个 Promise,可以接 then。</p>
+<p>this.props.signupActions.userSignupRequest(this.state);</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const mapDisptchToProps = <span class="function"><span class="params">(dispatch)</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    signupActions: bindActionCreators(signupActions, dispatch),</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="bindActionCreators-signupActions-dispatch"><a href="#bindActionCreators-signupActions-dispatch" class="headerlink" title="bindActionCreators(signupActions, dispatch)"></a>bindActionCreators(signupActions, dispatch)</h3><p>把一个 value 为不同 action creator 的对象，转成拥有同名 key 的对象。同时使用 dispatch 对每个 action creator 进行包装，以便可以直接调用它们。<br>一般情况下你可以直接在 Store 实例上调用 dispatch。如果你在 React 中使用 Redux，react-redux 会提供 dispatch 函数让你直接调用它 。<br>惟一会使用到 bindActionCreators 的场景是当你需要把 action creator 往下传到一个组件上，却不想让这个组件觉察到 Redux 的存在，而且不希望把 dispatch 或 Redux store 传给它。<br>为方便起见，你也可以传入一个函数作为第一个参数，它会返回一个函数。</p>
+<p><strong>参数</strong><br>actionCreators (Function or Object): 一个 action creator，或者一个 value 是 action creator 的对象。<br>dispatch (Function): 一个由 Store 实例提供的 dispatch 函数。</p>
+<p><strong>返回值</strong><br>(Function or Object): 一个与原对象类似的对象，只不过这个对象的 value 都是会直接 dispatch 原 action creator 返回的结果的函数。如果传入一个单独的函数作为 actionCreators，那么返回的结果也是一个单独的函数。</p>
+<h2 id="proxy-更新成了-creatProxyMiddleware"><a href="#proxy-更新成了-creatProxyMiddleware" class="headerlink" title="proxy 更新成了 creatProxyMiddleware"></a>proxy 更新成了 creatProxyMiddleware</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const<span class="built_in"> proxy </span>= require(<span class="string">'http-proxy-middleware'</span>);</span><br><span class="line">const &#123; createProxyMiddleware &#125; = require(<span class="string">'http-proxy-middleware'</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><p>return 是一个对象，对象里面有一个 response 属性是的固定的。</p>
+<h2 id="withRouter"><a href="#withRouter" class="headerlink" title="withRouter"></a>withRouter</h2><p>this.props.history.push(‘/‘)</p>
+<h2 id="actions-reducer"><a href="#actions-reducer" class="headerlink" title="actions reducer"></a>actions reducer</h2><p>actions 返回的数据，会被 reducer 里面的 actions 拿到</p>
+
       
 
       
@@ -545,11 +566,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/01/%E5%A5%87%E5%AE%89%E4%BF%A1%E7%AC%94%E8%AF%95-md/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/08/01/React-Login/">展开全文 >></a>
         </p>
       
 
@@ -1016,6 +1048,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">打包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
             
             <div class="clearfix"></div>

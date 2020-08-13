@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 打包 | Hexo</title>
+  <title>React-Login | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/%E6%89%93%E5%8C%85/index.html">
+  <meta name="description" content="依赖reduxreact-redux 更好用redux-thunk 异步处理redux-logger 更好的提示redux-devtools-extension 扩展工具 reducercombineReducers()生产一个函数，这个函数会调用我的所有 reducer，每个 reducer 都会根据它们的 key 来处理 state 中的一部分。import 了一个以 reducer 名字作为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-Login">
+<meta property="og:url" content="http://yoursite.com/2020/08/01/React-Login/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="依赖reduxreact-redux 更好用redux-thunk 异步处理redux-logger 更好的提示redux-devtools-extension 扩展工具 reducercombineReducers()生产一个函数，这个函数会调用我的所有 reducer，每个 reducer 都会根据它们的 key 来处理 state 中的一部分。import 了一个以 reducer 名字作为">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-01T10:51:09.000Z">
+<meta property="article:modified_time" content="2020-08-13T14:57:33.276Z">
 <meta property="article:author" content="北行四十一米">
+<meta property="article:tag" content="项目">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -130,60 +135,195 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-React-Login" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/08/webpack/" class="archive-article-date">
-  	<time datetime="2020-08-07T16:14:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/08/webpack/">webpack</a>
+    <h1 class="article-title" itemprop="name">
+      React-Login
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/08/01/React-Login/" class="archive-article-date">
+  	<time datetime="2020-08-01T10:51:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>redux<br>react-redux 更好用<br>redux-thunk 异步处理<br>redux-logger 更好的提示<br>redux-devtools-extension 扩展工具</p>
+<h2 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h2><h3 id="combineReducers"><a href="#combineReducers" class="headerlink" title="combineReducers()"></a>combineReducers()</h3><p>生产一个函数，这个函数会调用我的所有 reducer，每个 reducer 都会根据它们的 key 来处理 state 中的一部分。import 了一个以 reducer 名字作为 key 的 object.</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">"redux"</span>;</span><br><span class="line">import auth <span class="keyword">from</span> <span class="string">"./auth"</span>;</span><br><span class="line"></span><br><span class="line">const rootReducer = combineReducers(&#123;</span><br><span class="line">  auth,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">export</span><span class="built_in"> default </span>rootReducer;</span><br></pre></td></tr></table></figure>
+
+<p>通过 export 暴露出每个 reducer 函数。 we can find the auth(pin): {} in the F12 Redux.</p>
+<h2 id="require-exports-和-import-export"><a href="#require-exports-和-import-export" class="headerlink" title="require/exports 和 import/export"></a>require/exports 和 import/export</h2><p><strong>遵循的模块化规范不一样</strong><br>require 出现的时间早，遵循野生规范，CommenJS, AMD, CMD。 import 遵循 ES6 规范。<br>两者的底层逻辑不懂。<br>（问 require 和 import 的区别就是问 commonjs 和 es module 的区别，这两者一个是 api 的规范，一个是语言的语法，所以后者可以做静态分析，基于这个实现 treeshking，同时 es module 会静态的绑定导出的值，而 commonjs 会复制一份。但两者都会做缓存，所以不会有循环引用问题<br>作者：凌霄光<br>链接：<a href="https://juejin.im/post/6844904161847279629" target="_blank" rel="noopener">https://juejin.im/post/6844904161847279629</a><br>来源：掘金）</p>
+<h2 id="route"><a href="#route" class="headerlink" title="route"></a>route</h2><p>创建 components 文件夹，内部放置页面组件与跳转组件。<br>创建 routes.jsx 内部放置所有页面，创建各个页面，创建导航栏组件，在 routes.jsx 内引用。<br>导航栏组件中 import {Link} from ‘react-router-dom’;<br>在 index.js 中导入 Navigation 组件。</p>
+<h2 id="Signup"><a href="#Signup" class="headerlink" title="Signup"></a>Signup</h2><p>发送请求，调用 action 中的包含 dispatch 方法。</p>
+<p>form 表单 onSubmit 操作。是异步操作，所以得放在 actions 里面。<br>actions 里面使用 axios 和 ajax 来请求跨域数据。使用 thunk 的 dispatch 来 return 网络请求的结果对象，对象是个 Promise,可以接 then。</p>
+<p>this.props.signupActions.userSignupRequest(this.state);</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const mapDisptchToProps = <span class="function"><span class="params">(dispatch)</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    signupActions: bindActionCreators(signupActions, dispatch),</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="bindActionCreators-signupActions-dispatch"><a href="#bindActionCreators-signupActions-dispatch" class="headerlink" title="bindActionCreators(signupActions, dispatch)"></a>bindActionCreators(signupActions, dispatch)</h3><p>把一个 value 为不同 action creator 的对象，转成拥有同名 key 的对象。同时使用 dispatch 对每个 action creator 进行包装，以便可以直接调用它们。<br>一般情况下你可以直接在 Store 实例上调用 dispatch。如果你在 React 中使用 Redux，react-redux 会提供 dispatch 函数让你直接调用它 。<br>惟一会使用到 bindActionCreators 的场景是当你需要把 action creator 往下传到一个组件上，却不想让这个组件觉察到 Redux 的存在，而且不希望把 dispatch 或 Redux store 传给它。<br>为方便起见，你也可以传入一个函数作为第一个参数，它会返回一个函数。</p>
+<p><strong>参数</strong><br>actionCreators (Function or Object): 一个 action creator，或者一个 value 是 action creator 的对象。<br>dispatch (Function): 一个由 Store 实例提供的 dispatch 函数。</p>
+<p><strong>返回值</strong><br>(Function or Object): 一个与原对象类似的对象，只不过这个对象的 value 都是会直接 dispatch 原 action creator 返回的结果的函数。如果传入一个单独的函数作为 actionCreators，那么返回的结果也是一个单独的函数。</p>
+<h2 id="proxy-更新成了-creatProxyMiddleware"><a href="#proxy-更新成了-creatProxyMiddleware" class="headerlink" title="proxy 更新成了 creatProxyMiddleware"></a>proxy 更新成了 creatProxyMiddleware</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const<span class="built_in"> proxy </span>= require(<span class="string">'http-proxy-middleware'</span>);</span><br><span class="line">const &#123; createProxyMiddleware &#125; = require(<span class="string">'http-proxy-middleware'</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><p>return 是一个对象，对象里面有一个 response 属性是的固定的。</p>
+<h2 id="withRouter"><a href="#withRouter" class="headerlink" title="withRouter"></a>withRouter</h2><p>this.props.history.push(‘/‘)</p>
+<h2 id="actions-reducer"><a href="#actions-reducer" class="headerlink" title="actions reducer"></a>actions reducer</h2><p>actions 返回的数据，会被 reducer 里面的 actions 拿到</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打包</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/01/React-Login/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/08/02/%E5%89%91%E6%8C%87OFFER35%E5%A4%8D%E6%9D%82%E7%9A%84%E9%93%BE%E8%A1%A8%E5%A4%8D%E5%88%B6-md/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          剑指OFFER35复杂的链表复制
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/07/30/%E5%89%91%E6%8C%87OFFER34%E6%95%B0%E7%BB%84%E6%B7%B1%E6%8B%B7%E8%B4%9D-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">剑指OFFER34数组深拷贝.md</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -206,9 +346,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
