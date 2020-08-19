@@ -132,6 +132,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="js-this指向" class="article article-type-js  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/19/this%E6%8C%87%E5%90%91/">this指向</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/19/this%E6%8C%87%E5%90%91/" class="archive-article-date">
+  	<time datetime="2020-08-19T14:53:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="通过函数名来调用函数-有时候在对象的方法内再调用函数-，this指向全局变量window，通过对象-函数名调用函数，this指向对象"><a href="#通过函数名来调用函数-有时候在对象的方法内再调用函数-，this指向全局变量window，通过对象-函数名调用函数，this指向对象" class="headerlink" title="通过函数名来调用函数(有时候在对象的方法内再调用函数)，this指向全局变量window，通过对象.函数名调用函数，this指向对象"></a>通过函数名来调用函数(有时候在对象的方法内再调用函数)，this指向全局变量window，通过对象.函数名调用函数，this指向对象</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> test1() &#123;</span><br><span class="line">  console.log(this);</span><br><span class="line">&#125;</span><br><span class="line">test1();</span><br><span class="line"><span class="keyword">Window</span> &#123;parent: <span class="keyword">Window</span>, opener: <span class="keyword">null</span>, top: <span class="keyword">Window</span>, length: <span class="number">0</span>, frames: <span class="keyword">Window</span>, …&#125;</span><br><span class="line">let test2 = &#123;</span><br><span class="line">  <span class="keyword">show</span>: test1,</span><br><span class="line">&#125;;</span><br><span class="line">test2.<span class="keyword">show</span>();</span><br><span class="line">&#123;<span class="keyword">show</span>: ƒ&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/08/19/this%E6%8C%87%E5%90%91/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/19/this%E6%8C%87%E5%90%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-webpack" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -785,74 +850,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/07/29/CSSposition/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-float" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/29/float/">float</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/29/float/" class="archive-article-date">
-  	<time datetime="2020-07-29T08:11:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Float"><a href="#Float" class="headerlink" title="Float"></a>Float</h1><p>浮动是对后面元素的影响,前面的元素浮动就会让后面的元素上升到前面元素的位置，前后元素一起浮动就会让两个元素并列。</p>
-<h2 id="float-left"><a href="#float-left" class="headerlink" title="float:left"></a>float:left</h2><p>1.浮动 2.改行级元素为块级元素</p>
-<h3 id="清除上级元素浮动"><a href="#清除上级元素浮动" class="headerlink" title="清除上级元素浮动"></a>清除上级元素浮动</h3><p>clear:both clear:left clear:right</p>
-<h3 id="overflow-触发-bfc-清除下级元素浮动影响"><a href="#overflow-触发-bfc-清除下级元素浮动影响" class="headerlink" title="overflow 触发 bfc 清除下级元素浮动影响"></a>overflow 触发 bfc 清除下级元素浮动影响</h3><p>overflow：hidden,auto,scroll<br>触发后父级元素就会触发 float 元素的尺寸</p>
-<h3 id="页面布局的最高准则"><a href="#页面布局的最高准则" class="headerlink" title="页面布局的最高准则"></a>页面布局的最高准则</h3><h2 id="有相关性的元素就放到一组，大组套小组"><a href="#有相关性的元素就放到一组，大组套小组" class="headerlink" title="有相关性的元素就放到一组，大组套小组"></a>有相关性的元素就放到一组，大组套小组</h2><p>布局时使用 height,padding,margin 一般会舍弃 height，使用 padding 和 margin 来撑</p>
-<h3 id="shape-outside"><a href="#shape-outside" class="headerlink" title="shape-outside"></a>shape-outside</h3><p>用来做文字环绕,配合 clip-path 使用可以根据图形和图片（png）的形状进行环绕</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/29/float/">展开全文 >></a>
         </p>
       
 
