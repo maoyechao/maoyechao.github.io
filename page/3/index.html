@@ -132,6 +132,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-week4-LRU-Cache" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/03/week4-LRU-Cache/">week4 LRU Cache</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/03/week4-LRU-Cache/" class="archive-article-date">
+  	<time datetime="2020-05-03T13:43:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put.</p>
+<p>get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.<br>put(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.</p>
+<p>The cache is initialized with a positive capacity.</p>
+<p>Follow up:<br>Could you do both operations in O(1) time compl   exity?</p>
+<p>Example:```LRUCache cache = new LRUCache( 2 /* capacity */ );</p>
+<p>cache.put(1, 1);<br>cache.put(2, 2);<br>cache.get(1);       // returns 1<br>cache.put(3, 3);    // evicts key 2<br>cache.get(2);       // returns -1 (not found)<br>cache.put(4, 4);    // evicts key 1<br>cache.get(1);       // returns -1 (not found)<br>cache.get(3);       // returns 3<br>cache.get(4);       // returns 4<br>var LRUCache = function(capacity) {<br>    this.cache = new Map();<br>    this.capacity = capacity;<br>  };</p>
+<p>  LRUCache.prototype.get = function(key) {<br>    if (this.cache.has(key)) {<br>      let value = this.cache.get(key)<br>      this.cache.delete(key);<br>      this.cache.set(key, value);<br>      return value;<br>    }<br>    else {<br>      return -1;<br>    }<br>  };</p>
+<p>  LRUCache.prototype.put = function(key, value) {<br>      if (this.cache.has(key)) {<br>        this.cache.delete(key);<br>        this.cache.set(key,value);<br>      }<br>      else if (this.cache.size == this.capacity) {<br>        let firstKey = this.cache.keys().next().value;<br>        this.cache.delete(firstKey);<br>        this.cache.set(key, value);</p>
+<pre><code>}
+else {
+  this.cache.set(key,value);
+}</code></pre><p>  };</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">this.capacity</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/03/week4-LRU-Cache/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-week4-Bitwise-AND-of-Numbers-Range" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -884,80 +969,6 @@
 
 
   
-    <article id="post-数据可视化Taleau" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/04/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96Taleau/">数据可视化Taleau</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/04/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96Taleau/" class="archive-article-date">
-  	<time datetime="2020-04-04T15:50:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://datavasulisation.oss-cn-shanghai.aliyuncs.com/Download%20Image.png" alt="avatar"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">澳大利亚大堡礁白化率</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/04/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96Taleau/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
@@ -1128,6 +1139,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Block Formatting Context</a>
               </li>
             
             <div class="clearfix"></div>

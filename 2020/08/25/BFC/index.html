@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>BFC | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="子元素突破父元素范围父子元素都设置了 boader, backgroud，但是子元素设置了 float 还有 width 和 height。当子元素的块比父元素大时，就会突破父元素区域。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BFC">
+<meta property="og:url" content="http://yoursite.com/2020/08/25/BFC/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="子元素突破父元素范围父子元素都设置了 boader, backgroud，但是子元素设置了 float 还有 width 和 height。当子元素的块比父元素大时，就会突破父元素区域。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-25T08:05:02.000Z">
+<meta property="article:modified_time" content="2020-08-25T08:06:18.396Z">
 <meta property="article:author" content="北行四十一米">
+<meta property="article:tag" content="Block Formatting Context">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -130,16 +135,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-BFC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-BFC" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/25/BFC/">BFC</a>
+    <h1 class="article-title" itemprop="name">
+      BFC
     </h1>
   
 
@@ -153,11 +156,34 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="子元素突破父元素范围"><a href="#子元素突破父元素范围" class="headerlink" title="子元素突破父元素范围"></a>子元素突破父元素范围</h2><p>父子元素都设置了 boader, backgroud，但是子元素设置了 float 还有 width 和 height。当子元素的块比父元素大时，就会突破父元素区域。</p>
-        
-          <a class="article-more-a" href="/2020/08/25/BFC/#more">more >></a>
-        
+<a id="more"></a>
+
+<p><strong>使用 overflow: auto</strong><br>创建一个会包含这个浮动的 BFC，通常的做法是设置父元素 overflow: auto 或者设置其他的非默认的 overflow: visible 的值。<br>设置 overflow: auto 创建一个新的 BFC 来包含这个浮动。我们的 <div> 元素现在变成布局中的迷你布局。任何子元素都会被包含进去。<br>使用 overflow 来创建一个新的 BFC，是因为 overflow 属性告诉浏览器你想要怎样处理溢出的内容。当你使用这个属性只是为了创建 BFC 的时候，你可能会发现一些不想要的问题，比如滚动条或者一些剪切的阴影，需要注意。另外，对于后续的开发，可能不是很清楚当时为什么使用 overflow。所以你最好添加一些注释来解释为什么这样做。</p>
+<p><strong>使用 display: flow-root</strong><br>一个新的 display 属性的值，它可以创建无副作用的 BFC。在父级块中使用 display: flow-root 可以创建新的 BFC。<br>给 <div> display: flow-root 属性后，<div> 中的所有内容都会参与 BFC，浮动的内容不会从底部溢出。<br>关于值 flow-root 的这个名字，当你明白你实际上是在创建一个行为类似于根元素 （浏览器中的<html>元素） 的东西时，就能发现这个名字的意义了——即创建一个上下文，里面将进行 flow layout。</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -177,16 +203,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/25/BFC/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/25/BFC/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/19/this%E6%8C%87%E5%90%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">this指向</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -206,691 +291,14 @@
 
 
 
-
-  
-    <article id="js-this指向" class="article article-type-js  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/19/this%E6%8C%87%E5%90%91/">this指向</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/19/this%E6%8C%87%E5%90%91/" class="archive-article-date">
-  	<time datetime="2020-08-19T14:53:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="通过函数名来调用函数-有时候在对象的方法内再调用函数-，this指向全局变量window，通过对象-函数名调用函数，this指向对象"><a href="#通过函数名来调用函数-有时候在对象的方法内再调用函数-，this指向全局变量window，通过对象-函数名调用函数，this指向对象" class="headerlink" title="通过函数名来调用函数(有时候在对象的方法内再调用函数)，this指向全局变量window，通过对象.函数名调用函数，this指向对象"></a>通过函数名来调用函数(有时候在对象的方法内再调用函数)，this指向全局变量window，通过对象.函数名调用函数，this指向对象</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> test1() &#123;</span><br><span class="line">  console.log(this);</span><br><span class="line">&#125;</span><br><span class="line">test1();</span><br><span class="line"><span class="keyword">Window</span> &#123;parent: <span class="keyword">Window</span>, opener: <span class="keyword">null</span>, top: <span class="keyword">Window</span>, length: <span class="number">0</span>, frames: <span class="keyword">Window</span>, …&#125;</span><br><span class="line">let test2 = &#123;</span><br><span class="line">  <span class="keyword">show</span>: test1,</span><br><span class="line">&#125;;</span><br><span class="line">test2.<span class="keyword">show</span>();</span><br><span class="line">&#123;<span class="keyword">show</span>: ƒ&#125;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/08/19/this%E6%8C%87%E5%90%91/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/19/this%E6%8C%87%E5%90%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-webpack" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/08/webpack/">webpack</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/08/webpack/" class="archive-article-date">
-  	<time datetime="2020-08-07T16:14:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>webpack是由node来做的</p>
-<h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><p><strong>生产模式 开发模式</strong><br>把多个依赖文件，打包成一个文件。生产模式比开发模式多了代码压缩与混淆，但是少了代码注释。生产模式的打包文件比开发模式小</p>
-        
-          <a class="article-more-a" href="/2020/08/08/webpack/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打包</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/08/webpack/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-宏任务与微任务-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/04/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1-md/">宏任务与微任务.md</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/04/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1-md/" class="archive-article-date">
-  	<time datetime="2020-08-04T10:45:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>js 是单线程语言，主线程会把耗时操作放到任务队列里面，Promise 放到微任务队列，其他耗时操作基本都放到宏任务队列。</p>
-<h2 id="宏任务"><a href="#宏任务" class="headerlink" title="宏任务"></a>宏任务</h2><p><img src="https://maoyechao-blog.oss-cn-beijing.aliyuncs.com/Screen%20Shot%202020-08-04%20at%207.29.26%20pm.png" alt="分类"></p>
-        
-          <a class="article-more-a" href="/2020/08/04/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1-md/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">宏任务与微任务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/04/%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1-md/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-async和await语法糖-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/03/async%E5%92%8Cawait%E8%AF%AD%E6%B3%95%E7%B3%96-md/">async和await语法糖.md</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/03/async%E5%92%8Cawait%E8%AF%AD%E6%B3%95%E7%B3%96-md/" class="archive-article-date">
-  	<time datetime="2020-08-03T12:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="在-script-标签中使用"><a href="#在-script-标签中使用" class="headerlink" title="在 script 标签中使用"></a>在 script 标签中使用</h2><p>![alt 图标](“../images/Screen Shot 2020-08-13 at 10.53.21 pm.png” “RUNOOB”)</p>
-<h2 id="async"><a href="#async" class="headerlink" title="async"></a>async</h2><p>Promise 的语法糖</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">hd</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(<span class="string">"text"</span>);</span><br><span class="line">    &#125;, <span class="number">2000</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(hd());</span><br><span class="line">hd().then(<span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(v));</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/08/03/async%E5%92%8Cawait%E8%AF%AD%E6%B3%95%E7%B3%96-md/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Promise详解二</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/03/async%E5%92%8Cawait%E8%AF%AD%E6%B3%95%E7%B3%96-md/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Promise详解一-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/03/Promise%E8%AF%A6%E8%A7%A3%E4%B8%80-md/">Promise详解一</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/03/Promise%E8%AF%A6%E8%A7%A3%E4%B8%80-md/" class="archive-article-date">
-  	<time datetime="2020-08-03T08:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="微任务处理机制"><a href="#微任务处理机制" class="headerlink" title="微任务处理机制"></a>微任务处理机制</h2><p>会生产出微任务(.then())，微任务有一个微任务队列(.then().then().then())。</p>
-<h2 id="宏任务与微任务执行顺序"><a href="#宏任务与微任务执行顺序" class="headerlink" title="宏任务与微任务执行顺序"></a>宏任务与微任务执行顺序</h2><p>new Promise()是同步执行的。.then 被通知执行（执行回调函数）后是异步（微任务）执行的。微任务之后在执行宏任务。</p>
-        
-          <a class="article-more-a" href="/2020/08/03/Promise%E8%AF%A6%E8%A7%A3%E4%B8%80-md/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">代理对象(代理一个值)</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/03/Promise%E8%AF%A6%E8%A7%A3%E4%B8%80-md/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-剑指OFFER35复杂的链表复制-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/02/%E5%89%91%E6%8C%87OFFER35%E5%A4%8D%E6%9D%82%E7%9A%84%E9%93%BE%E8%A1%A8%E5%A4%8D%E5%88%B6-md/">剑指OFFER35复杂的链表复制</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/02/%E5%89%91%E6%8C%87OFFER35%E5%A4%8D%E6%9D%82%E7%9A%84%E9%93%BE%E8%A1%A8%E5%A4%8D%E5%88%B6-md/" class="archive-article-date">
-  	<time datetime="2020-08-02T06:28:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="链表节点指向往往是一个-temp-和-head-指向同一个地址，然后让-temp-temp-next，这样-head-还是指向原来的头节点。"><a href="#链表节点指向往往是一个-temp-和-head-指向同一个地址，然后让-temp-temp-next，这样-head-还是指向原来的头节点。" class="headerlink" title="链表节点指向往往是一个 temp 和 head 指向同一个地址，然后让 temp=temp.next，这样 head 还是指向原来的头节点。"></a>链表节点指向往往是一个 temp 和 head 指向同一个地址，然后让 temp=temp.next，这样 head 还是指向原来的头节点。</h2><p>请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指向链表中的任意节点或者 null。</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [[<span class="number">7</span>,<span class="literal">null</span>],[<span class="number">13</span>,<span class="number">0</span>],[<span class="number">11</span>,<span class="number">4</span>],[<span class="number">10</span>,<span class="number">2</span>],[<span class="number">1</span>,<span class="number">0</span>]]</span><br><span class="line">输出：[[<span class="number">7</span>,<span class="literal">null</span>],[<span class="number">13</span>,<span class="number">0</span>],[<span class="number">11</span>,<span class="number">4</span>],[<span class="number">10</span>,<span class="number">2</span>],[<span class="number">1</span>,<span class="number">0</span>]]</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/08/02/%E5%89%91%E6%8C%87OFFER35%E5%A4%8D%E6%9D%82%E7%9A%84%E9%93%BE%E8%A1%A8%E5%A4%8D%E5%88%B6-md/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">新建节点 插入节点 分离链表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/02/%E5%89%91%E6%8C%87OFFER35%E5%A4%8D%E6%9D%82%E7%9A%84%E9%93%BE%E8%A1%A8%E5%A4%8D%E5%88%B6-md/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-React-Login" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/01/React-Login/">React-Login</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/01/React-Login/" class="archive-article-date">
-  	<time datetime="2020-08-01T10:51:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>redux<br>react-redux 更好用<br>redux-thunk 异步处理<br>redux-logger 更好的提示<br>redux-devtools-extension 扩展工具</p>
-<h2 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h2><h3 id="combineReducers"><a href="#combineReducers" class="headerlink" title="combineReducers()"></a>combineReducers()</h3><p>生产一个函数，这个函数会调用我的所有 reducer，每个 reducer 都会根据它们的 key 来处理 state 中的一部分。import 了一个以 reducer 名字作为 key 的 object.</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">"redux"</span>;</span><br><span class="line">import auth <span class="keyword">from</span> <span class="string">"./auth"</span>;</span><br><span class="line"></span><br><span class="line">const rootReducer = combineReducers(&#123;</span><br><span class="line">  auth,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">export</span><span class="built_in"> default </span>rootReducer;</span><br></pre></td></tr></table></figure>
-
-<p>通过 export 暴露出每个 reducer 函数。 we can find the auth(pin): {} in the F12 Redux.</p>
-<h2 id="require-exports-和-import-export"><a href="#require-exports-和-import-export" class="headerlink" title="require/exports 和 import/export"></a>require/exports 和 import/export</h2><p><strong>遵循的模块化规范不一样</strong><br>require 出现的时间早，遵循野生规范，CommenJS, AMD, CMD。 import 遵循 ES6 规范。<br>两者的底层逻辑不懂。<br>（问 require 和 import 的区别就是问 commonjs 和 es module 的区别，这两者一个是 api 的规范，一个是语言的语法，所以后者可以做静态分析，基于这个实现 treeshking，同时 es module 会静态的绑定导出的值，而 commonjs 会复制一份。但两者都会做缓存，所以不会有循环引用问题<br>作者：凌霄光<br>链接：<a href="https://juejin.im/post/6844904161847279629" target="_blank" rel="noopener">https://juejin.im/post/6844904161847279629</a><br>来源：掘金）</p>
-<h2 id="route"><a href="#route" class="headerlink" title="route"></a>route</h2><p>创建 components 文件夹，内部放置页面组件与跳转组件。<br>创建 routes.jsx 内部放置所有页面，创建各个页面，创建导航栏组件，在 routes.jsx 内引用。<br>导航栏组件中 import {Link} from ‘react-router-dom’;<br>在 index.js 中导入 Navigation 组件。</p>
-<h2 id="Signup"><a href="#Signup" class="headerlink" title="Signup"></a>Signup</h2><p>发送请求，调用 action 中的包含 dispatch 方法。</p>
-<p>form 表单 onSubmit 操作。是异步操作，所以得放在 actions 里面。<br>actions 里面使用 axios 和 ajax 来请求跨域数据。使用 thunk 的 dispatch 来 return 网络请求的结果对象，对象是个 Promise,可以接 then。</p>
-<p>this.props.signupActions.userSignupRequest(this.state);</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const mapDisptchToProps = <span class="function"><span class="params">(dispatch)</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    signupActions: bindActionCreators(signupActions, dispatch),</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="bindActionCreators-signupActions-dispatch"><a href="#bindActionCreators-signupActions-dispatch" class="headerlink" title="bindActionCreators(signupActions, dispatch)"></a>bindActionCreators(signupActions, dispatch)</h3><p>把一个 value 为不同 action creator 的对象，转成拥有同名 key 的对象。同时使用 dispatch 对每个 action creator 进行包装，以便可以直接调用它们。<br>一般情况下你可以直接在 Store 实例上调用 dispatch。如果你在 React 中使用 Redux，react-redux 会提供 dispatch 函数让你直接调用它 。<br>惟一会使用到 bindActionCreators 的场景是当你需要把 action creator 往下传到一个组件上，却不想让这个组件觉察到 Redux 的存在，而且不希望把 dispatch 或 Redux store 传给它。<br>为方便起见，你也可以传入一个函数作为第一个参数，它会返回一个函数。</p>
-<p><strong>参数</strong><br>actionCreators (Function or Object): 一个 action creator，或者一个 value 是 action creator 的对象。<br>dispatch (Function): 一个由 Store 实例提供的 dispatch 函数。</p>
-<p><strong>返回值</strong><br>(Function or Object): 一个与原对象类似的对象，只不过这个对象的 value 都是会直接 dispatch 原 action creator 返回的结果的函数。如果传入一个单独的函数作为 actionCreators，那么返回的结果也是一个单独的函数。</p>
-<h2 id="proxy-更新成了-creatProxyMiddleware"><a href="#proxy-更新成了-creatProxyMiddleware" class="headerlink" title="proxy 更新成了 creatProxyMiddleware"></a>proxy 更新成了 creatProxyMiddleware</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const<span class="built_in"> proxy </span>= require(<span class="string">'http-proxy-middleware'</span>);</span><br><span class="line">const &#123; createProxyMiddleware &#125; = require(<span class="string">'http-proxy-middleware'</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><p>return 是一个对象，对象里面有一个 response 属性是的固定的。</p>
-<h2 id="withRouter"><a href="#withRouter" class="headerlink" title="withRouter"></a>withRouter</h2><p>this.props.history.push(‘/‘)</p>
-<h2 id="actions-reducer"><a href="#actions-reducer" class="headerlink" title="actions reducer"></a>actions reducer</h2><p>actions 返回的数据，会被 reducer 里面的 actions 拿到</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/01/React-Login/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-剑指OFFER34数组深拷贝-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/30/%E5%89%91%E6%8C%87OFFER34%E6%95%B0%E7%BB%84%E6%B7%B1%E6%8B%B7%E8%B4%9D-md/">剑指OFFER34数组深拷贝.md</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/30/%E5%89%91%E6%8C%87OFFER34%E6%95%B0%E7%BB%84%E6%B7%B1%E6%8B%B7%E8%B4%9D-md/" class="archive-article-date">
-  	<time datetime="2020-07-30T15:30:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>输入一棵二叉树和一个整数，打印出二叉树中节点值的和为输入整数的所有路径。从树的根节点开始往下一直到叶节点所经过的节点形成一条路径。</p>
-        
-          <a class="article-more-a" href="/2020/07/30/%E5%89%91%E6%8C%87OFFER34%E6%95%B0%E7%BB%84%E6%B7%B1%E6%8B%B7%E8%B4%9D-md/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/30/%E5%89%91%E6%8C%87OFFER34%E6%95%B0%E7%BB%84%E6%B7%B1%E6%8B%B7%E8%B4%9D-md/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-判断变量是否为空-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/30/%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA-md/">判断变量是否为空.md</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/30/%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA-md/" class="archive-article-date">
-  	<time datetime="2020-07-30T13:34:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="判断变量是否为空"><a href="#判断变量是否为空" class="headerlink" title="判断变量是否为空"></a>判断变量是否为空</h1><ol>
-<li>只声明了变量，typeof(a) == undefined </li>
-<li>空数组， a == null || a.length == 0</li>
-<li>空对象， JSON.stringify(a) == ‘{}’</li>
-<li>NaN，isNaN(a);</li>
-<li>空字符串，a.length == 0</li>
-<li>null, a === null; 因为undefined == null, 所以得用===</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/30/%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA-md/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -913,8 +321,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

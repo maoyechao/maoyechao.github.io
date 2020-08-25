@@ -132,6 +132,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CSSposition" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/29/CSSposition/">CSSposition</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/29/CSSposition/" class="archive-article-date">
+  	<time datetime="2020-07-29T13:33:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Position"><a href="#Position" class="headerlink" title="Position"></a>Position</h1><p>自由度极高的元素位置处理方式，适合特殊的元素定位。比如下拉菜单不会往下顶其他元素。</p>
+<h2 id="相对定位"><a href="#相对定位" class="headerlink" title="相对定位"></a>相对定位</h2><p>position:relative 当前空间位置保留，往上下左右移动</p>
+<h2 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h2><p>position:absolute 空间位置丢失，往上下左右移动。如果父级元素有位置属性，参考点是父级元素。所以一般会给父元素 position:relative</p>
+<h3 id="内容在滚动条里面被定位时，会随着滚动条的移动而移动。"><a href="#内容在滚动条里面被定位时，会随着滚动条的移动而移动。" class="headerlink" title="内容在滚动条里面被定位时，会随着滚动条的移动而移动。"></a>内容在滚动条里面被定位时，会随着滚动条的移动而移动。</h3><h2 id="定位元素的优先级"><a href="#定位元素的优先级" class="headerlink" title="定位元素的优先级"></a>定位元素的优先级</h2><p>1.后出来的元素标签优先级比前面的高<br>2.z-index</p>
+<h2 id="固定定位"><a href="#固定定位" class="headerlink" title="固定定位"></a>固定定位</h2><p>position: fixed 参考整个页面</p>
+<h2 id="粘性定位"><a href="#粘性定位" class="headerlink" title="粘性定位"></a>粘性定位</h2><p>position：sticky top:0 滚动条内元素接近上下左右边时会粘在上下左右边，类似于每个章节在读到时副标题会粘在页面顶部，导航栏下面。后面出现的元素会取消前面元素的粘性定位。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/29/CSSposition/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-float" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -861,91 +929,6 @@
 
 
   
-    <article id="post-week4-LRU-Cache" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/03/week4-LRU-Cache/">week4 LRU Cache</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/03/week4-LRU-Cache/" class="archive-article-date">
-  	<time datetime="2020-05-03T13:43:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put.</p>
-<p>get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.<br>put(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.</p>
-<p>The cache is initialized with a positive capacity.</p>
-<p>Follow up:<br>Could you do both operations in O(1) time compl   exity?</p>
-<p>Example:```LRUCache cache = new LRUCache( 2 /* capacity */ );</p>
-<p>cache.put(1, 1);<br>cache.put(2, 2);<br>cache.get(1);       // returns 1<br>cache.put(3, 3);    // evicts key 2<br>cache.get(2);       // returns -1 (not found)<br>cache.put(4, 4);    // evicts key 1<br>cache.get(1);       // returns -1 (not found)<br>cache.get(3);       // returns 3<br>cache.get(4);       // returns 4<br>var LRUCache = function(capacity) {<br>    this.cache = new Map();<br>    this.capacity = capacity;<br>  };</p>
-<p>  LRUCache.prototype.get = function(key) {<br>    if (this.cache.has(key)) {<br>      let value = this.cache.get(key)<br>      this.cache.delete(key);<br>      this.cache.set(key, value);<br>      return value;<br>    }<br>    else {<br>      return -1;<br>    }<br>  };</p>
-<p>  LRUCache.prototype.put = function(key, value) {<br>      if (this.cache.has(key)) {<br>        this.cache.delete(key);<br>        this.cache.set(key,value);<br>      }<br>      else if (this.cache.size == this.capacity) {<br>        let firstKey = this.cache.keys().next().value;<br>        this.cache.delete(firstKey);<br>        this.cache.set(key, value);</p>
-<pre><code>}
-else {
-  this.cache.set(key,value);
-}</code></pre><p>  };</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">this.capacity</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/03/week4-LRU-Cache/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1116,6 +1099,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Block Formatting Context</a>
               </li>
             
             <div class="clearfix"></div>
