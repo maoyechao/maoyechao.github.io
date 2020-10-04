@@ -152,11 +152,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>调用其他函数内部的子函数或者内部变量，子函数或者内部变量所在的父函数作用域不会被释放。</p>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><p>&lt;%- image_tag(/JS/jsEvent.png, {alt:’test’}) %&gt;<br>&lt;%- image_tag(JS/jsEvent.png, {alt:’test’}) %&gt;<br>&lt;%- image_tag(./JS/jsEvent.png, {alt:’test’}) %&gt;<br><img src="./JS/jsEvent.png" alt="示例"><br><img src="/assets/jsEvent.png" alt="示例"><br><img src="JS/jsEvent.png" alt="示例"><br>事件捕获阶段</p>
-<p>处于目标阶段</p>
-<p>事件冒泡阶段</p>
-
+        <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>闭包就是能够读取其他函数内部变量的函数。<br>调用其他函数内部的子函数或者内部变量，子函数或者内部变量所在的父函数作用域不会被释放。<br>局部变量对于子函数来时是全局变量，所以不会被垃圾回收，这样父函数也不会被回收。<br>内存泄露就用删除局部变量的方式进行。有可能可以用 delete。</p>
+<h2 id="原型与继承"><a href="#原型与继承" class="headerlink" title="原型与继承"></a>原型与继承</h2><h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p><img src="/assets/%E5%8E%9F%E5%9E%8B%E9%93%BE.png" alt="原型链"></p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">people</span><span class="params">()</span> <span class="comment">&#123;&#125;</span>;</span></span><br><span class="line">people.prototype<span class="function">.<span class="keyword">constructor</span> === <span class="title">people</span><span class="params">()</span> <span class="comment">//ture;</span></span></span><br><span class="line"><span class="function"><span class="title">const</span> <span class="title">person</span> = <span class="title">new</span> <span class="title">people</span><span class="params">()</span>;</span></span><br><span class="line">person.__proto__.cosntructor === people() <span class="comment">//true;</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/10/04/JS/#more">more >></a>
+        
       
 
       
@@ -220,7 +221,7 @@
       
         <h2 id="get-post"><a href="#get-post" class="headerlink" title="get post"></a>get post</h2><h3 id="1-传参长度"><a href="#1-传参长度" class="headerlink" title="1. 传参长度"></a>1. 传参长度</h3><p>http 协议没有规定请求长度限制是多少，其实是浏览器和 web 服务器规定的长度限制。 IE2083byte, Chrome8182byte。</p>
 <h3 id="2-缓存"><a href="#2-缓存" class="headerlink" title="2. 缓存"></a>2. 缓存</h3><p>get 不用每一次都和数据库连接，可以直接在缓存中获取数据。<br>post 一般做修改与删除工作，必须与数据库交互，所以不能用缓存。</p>
-<p>###</p>
+<h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><p>第一次握手：客户端与服务器都处于 closed 状态，client 将标志位 SYN 设置为 1，随机产生一个值 seq=x,并将数据包发给 sever，client 进入 syn-sent 状态，等待 server 确认。<br>第二次握手：server 收到数据包后由 syn=1 等值 client 请求建立连接，server 将 SYN 和 ACK 都设置为 1，ack=x+1,随机生成一个 seq=y,将数据包发送给 client 以确认连接请求，server 进入 syn-recd 状态，此时操作系统为改 tcp 连接分配 tcp 缓存和变量。<br>第三次握手：client 收到确认后，检查 ack 是否为 x+1,ACK 是否为 1，如果是，则将标志位设为 ACK=1,ack=y+1 并且此时操作系统为该 tcp 连接分配 tcp 缓存和变量，并将该数据包发送给 server，server 检查 ack 是否为 y+1，ACK 是否为 1，如果是，则建立连接成果。client 和 server 进入 established 状态，三次握手完成，之后就可以传数据了。</p>
 
       
 

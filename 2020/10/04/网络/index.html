@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>网络 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="get post1. 传参长度http 协议没有规定请求长度限制是多少，其实是浏览器和 web 服务器规定的长度限制。 IE2083byte, Chrome8182byte。 2. 缓存get 不用每一次都和数据库连接，可以直接在缓存中获取数据。post 一般做修改与删除工作，必须与数据库交互，所以不能用缓存。 ###">
+  <meta name="description" content="get post1. 传参长度http 协议没有规定请求长度限制是多少，其实是浏览器和 web 服务器规定的长度限制。 IE2083byte, Chrome8182byte。 2. 缓存get 不用每一次都和数据库连接，可以直接在缓存中获取数据。post 一般做修改与删除工作，必须与数据库交互，所以不能用缓存。 三次握手第一次握手：客户端与服务器都处于 closed 状态，client 将标志位">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络">
 <meta property="og:url" content="http://yoursite.com/2020/10/04/%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="get post1. 传参长度http 协议没有规定请求长度限制是多少，其实是浏览器和 web 服务器规定的长度限制。 IE2083byte, Chrome8182byte。 2. 缓存get 不用每一次都和数据库连接，可以直接在缓存中获取数据。post 一般做修改与删除工作，必须与数据库交互，所以不能用缓存。 ###">
+<meta property="og:description" content="get post1. 传参长度http 协议没有规定请求长度限制是多少，其实是浏览器和 web 服务器规定的长度限制。 IE2083byte, Chrome8182byte。 2. 缓存get 不用每一次都和数据库连接，可以直接在缓存中获取数据。post 一般做修改与删除工作，必须与数据库交互，所以不能用缓存。 三次握手第一次握手：客户端与服务器都处于 closed 状态，client 将标志位">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-04T05:21:58.000Z">
-<meta property="article:modified_time" content="2020-10-04T05:22:22.878Z">
+<meta property="article:modified_time" content="2020-10-04T15:03:26.391Z">
 <meta property="article:author" content="北行四十一米">
 <meta name="twitter:card" content="summary">
   
@@ -156,7 +156,7 @@
       
         <h2 id="get-post"><a href="#get-post" class="headerlink" title="get post"></a>get post</h2><h3 id="1-传参长度"><a href="#1-传参长度" class="headerlink" title="1. 传参长度"></a>1. 传参长度</h3><p>http 协议没有规定请求长度限制是多少，其实是浏览器和 web 服务器规定的长度限制。 IE2083byte, Chrome8182byte。</p>
 <h3 id="2-缓存"><a href="#2-缓存" class="headerlink" title="2. 缓存"></a>2. 缓存</h3><p>get 不用每一次都和数据库连接，可以直接在缓存中获取数据。<br>post 一般做修改与删除工作，必须与数据库交互，所以不能用缓存。</p>
-<p>###</p>
+<h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><p>第一次握手：客户端与服务器都处于 closed 状态，client 将标志位 SYN 设置为 1，随机产生一个值 seq=x,并将数据包发给 sever，client 进入 syn-sent 状态，等待 server 确认。<br>第二次握手：server 收到数据包后由 syn=1 等值 client 请求建立连接，server 将 SYN 和 ACK 都设置为 1，ack=x+1,随机生成一个 seq=y,将数据包发送给 client 以确认连接请求，server 进入 syn-recd 状态，此时操作系统为改 tcp 连接分配 tcp 缓存和变量。<br>第三次握手：client 收到确认后，检查 ack 是否为 x+1,ACK 是否为 1，如果是，则将标志位设为 ACK=1,ack=y+1 并且此时操作系统为该 tcp 连接分配 tcp 缓存和变量，并将该数据包发送给 server，server 检查 ack 是否为 y+1，ACK 是否为 1，如果是，则建立连接成果。client 和 server 进入 established 状态，三次握手完成，之后就可以传数据了。</p>
 
       
 
