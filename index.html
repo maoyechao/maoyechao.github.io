@@ -153,7 +153,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>调用其他函数内部的子函数或者内部变量，子函数或者内部变量所在的父函数作用域不会被释放。</p>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><p>&lt;% asset_tag jsEvent.png JS %&gt;<br>事件捕获阶段</p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><p>&lt;%- image_tag(/JS/jsEvent.png, {alt:’test’}) %&gt;<br>&lt;%- image_tag(JS/jsEvent.png, {alt:’test’}) %&gt;<br>&lt;%- image_tag(./JS/jsEvent.png, {alt:’test’}) %&gt;<br>事件捕获阶段</p>
 <p>处于目标阶段</p>
 <p>事件冒泡阶段</p>
 
