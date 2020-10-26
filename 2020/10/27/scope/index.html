@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Hexo</title>
+  <title>scope | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/page/4/index.html">
+  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172import requestsimport pymongofrom multiprocessing.dummy import Po">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scope">
+<meta property="og:url" content="http://yoursite.com/2020/10/27/scope/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172import requestsimport pymongofrom multiprocessing.dummy import Po">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-26T18:01:04.000Z">
+<meta property="article:modified_time" content="2020-10-26T18:01:44.264Z">
 <meta property="article:author" content="北行四十一米">
 <meta name="twitter:card" content="summary">
   
@@ -130,220 +134,155 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-scope" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      scope
+    </h1>
+  
+
+        
+        <a href="/2020/10/27/scope/" class="archive-article-date">
+  	<time datetime="2020-10-26T18:01:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-27</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"><span class="keyword">from</span> multiprocessing.dummy <span class="keyword">import</span> Pool <span class="keyword">as</span> mp</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line">db = pymongo.MongoClient()[<span class="string">'ceis_nlp'</span>][<span class="string">'xiaohongshu'</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_list</span><span class="params">(url, page)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    获取列表页</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">return</span> requests.get(url, headers=head).json()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_mongo</span><span class="params">(item)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    :param item:需要保存的item</span></span><br><span class="line"><span class="string">    :return: 保存数据</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        res = db.save(item)</span><br><span class="line">        print(res)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'重复!'</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span><span class="params">(info)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    :param info:列表页的单条数据</span></span><br><span class="line"><span class="string">    :return: 加入content后的item</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line"></span><br><span class="line">    info_url = <span class="string">'https://www.xiaohongshu.com/wx_mp_api/sns/v1/note/&#123;&#125;/single_feed?sid=session.1567474343950544022616'</span>.format(info[<span class="string">'id'</span>])</span><br><span class="line">    content_data = requests.get(info_url, headers=head).json()</span><br><span class="line">    info[<span class="string">'desc'</span>] = repr(content_data[<span class="string">'data'</span>][<span class="number">0</span>][<span class="string">'note_list'</span>][<span class="number">0</span>][<span class="string">'desc'</span>])</span><br><span class="line">    info[<span class="string">'time'</span>] = datetime.datetime.fromtimestamp(content_data[<span class="string">'data'</span>][<span class="number">0</span>][<span class="string">'note_list'</span>][<span class="number">0</span>][<span class="string">'time'</span>])</span><br><span class="line">    info[<span class="string">"_id"</span>] = info[<span class="string">"id"</span>]</span><br><span class="line">    save_mongo(info)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_data</span><span class="params">(listpage_json)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    :param listpage_json:列表页的json数据</span></span><br><span class="line"><span class="string">    :return: 单条详情数据</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    info_data = listpage_json[<span class="string">'data'</span>][<span class="string">'notes'</span>]</span><br><span class="line">    <span class="keyword">for</span> info <span class="keyword">in</span> info_data:</span><br><span class="line">        get_content(info)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(url, page)</span>:</span></span><br><span class="line">    print(page)</span><br><span class="line">    read_data(get_list(url, page))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    authorization = <span class="string">'19bc4862-d820-481e-b83d-******'</span></span><br><span class="line">    head = &#123;<span class="string">"accept"</span>: <span class="string">"*/*"</span>,</span><br><span class="line">            <span class="string">"content-type"</span>: <span class="string">"application/json"</span>,</span><br><span class="line">            <span class="string">"device-fingerprint"</span>: <span class="string">"WC39ZUyXRgdFrJLIl36pz6dYNcrGscYZZWqJlPTC2v9Zkrt3jCwWKSyDu9wYQhprJgZD8KTs1jiM0/jeT0GYQI+Xx06PQ2kgctL/WmrP2Tauiuo9Z2Nzm4Q==1487577677129"</span>,</span><br><span class="line">            <span class="string">"authorization"</span>: authorization,</span><br><span class="line">            <span class="string">"referer"</span>: <span class="string">"https://servicewechat.com/wxffc08ac7df482a27/270/page-frame.html"</span>,</span><br><span class="line">            <span class="string">"accept-language"</span>: <span class="string">"zh-cn"</span>,</span><br><span class="line">            <span class="string">"user-agent"</span>: <span class="string">"Mozilla/5.0 (iPhone; CPU iPhone OS 12_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.5(0x17000523) NetType/WIFI Language/zh_CN"</span>,</span><br><span class="line">            <span class="string">"accept-encoding"</span>: <span class="string">"br, gzip, deflate"</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">    pools = mp(<span class="number">16</span>)</span><br><span class="line">    keyword = <span class="string">'国庆旅游'</span></span><br><span class="line">    <span class="comment"># 1:按热度排序 2:按时间排序 3:综合排序</span></span><br><span class="line">    sort = &#123;<span class="string">"1"</span>: <span class="string">"popularity_descending"</span>, <span class="string">"2"</span>: <span class="string">"time_descending"</span>, <span class="string">"3"</span>: <span class="string">"general"</span>&#125;</span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> range(<span class="number">25</span>, <span class="number">51</span>):</span><br><span class="line">        url = <span class="string">'https://www.xiaohongshu.com/wx_mp_api/sns/v1/search/notes?keyword=&#123;&#125;&amp;sort=&#123;&#125;&amp;page=&#123;&#125;&amp;per_page=30&amp;sid=session.1567474343950544022616'</span>.format(keyword, sort[<span class="string">"1"</span>], page)</span><br><span class="line">        pools.apply_async(main, args=(url, page,))</span><br><span class="line">        <span class="comment"># main(url, page)</span></span><br><span class="line">    pools.close()</span><br><span class="line">    pools.join()</span><br><span class="line">    ```</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/29/HTML-%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-04-29T13:33:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/29/HTML-%E7%AC%94%E8%AE%B0/">HTML 笔记</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">语义化标签</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/10/27/scope/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/29/Week-3-Number-of-Islands/" class="archive-article-date">
-  	<time datetime="2020-04-29T05:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/10/04/JS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/29/Week-3-Number-of-Islands/">Week 3 Number of Islands</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">中等难度</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/28/leetcode-week3-minimum-path-sum/" class="archive-article-date">
-  	<time datetime="2020-04-28T05:07:47.132Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/28/leetcode-week3-minimum-path-sum/">leetcode-week3-minimum-path-sum</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/04/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96Taleau/" class="archive-article-date">
-  	<time datetime="2020-04-04T15:50:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/04/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96Taleau/">数据可视化Taleau</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">澳大利亚大堡礁白化率</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-03-29T17:38:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/30/hello-world/" class="archive-article-date">
-  	<time datetime="2020-03-29T17:33:46.271Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/30/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><a class="page-number" href="/archives/2020/page/2/">2</a><a class="page-number" href="/archives/2020/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
   
 
 
@@ -367,8 +306,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
