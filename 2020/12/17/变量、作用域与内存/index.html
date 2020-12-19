@@ -6,17 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>float | Hexo</title>
+  <title>变量、作用域与内存 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Float浮动是对后面元素的影响,前面的元素浮动就会让后面的元素上升到前面元素的位置，前后元素一起浮动就会让两个元素并列。 float:left1.浮动 2.改行级元素为块级元素 清除上级元素浮动clear:both clear:left clear:right overflow 触发 bfc 清除下级元素浮动影响overflow：hidden,auto,scroll触发后父级元素就会触发 flo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="float">
-<meta property="og:url" content="http://yoursite.com/2020/07/29/float/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="变量、作用域与内存">
+<meta property="og:url" content="http://yoursite.com/2020/12/17/%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Float浮动是对后面元素的影响,前面的元素浮动就会让后面的元素上升到前面元素的位置，前后元素一起浮动就会让两个元素并列。 float:left1.浮动 2.改行级元素为块级元素 清除上级元素浮动clear:both clear:left clear:right overflow 触发 bfc 清除下级元素浮动影响overflow：hidden,auto,scroll触发后父级元素就会触发 flo">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-29T08:11:49.000Z">
-<meta property="article:modified_time" content="2020-07-29T08:12:20.273Z">
+<meta property="article:published_time" content="2020-12-17T10:13:59.000Z">
+<meta property="article:modified_time" content="2020-12-17T10:13:59.227Z">
 <meta property="article:author" content="北行四十一米">
 <meta name="twitter:card" content="summary">
   
@@ -134,33 +132,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-float" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-变量、作用域与内存" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      float
+      变量、作用域与内存
     </h1>
   
 
         
-        <a href="/2020/07/29/float/" class="archive-article-date">
-  	<time datetime="2020-07-29T08:11:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-29</time>
+        <a href="/2020/12/17/%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98/" class="archive-article-date">
+  	<time datetime="2020-12-17T10:13:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Float"><a href="#Float" class="headerlink" title="Float"></a>Float</h1><p>浮动是对后面元素的影响,前面的元素浮动就会让后面的元素上升到前面元素的位置，前后元素一起浮动就会让两个元素并列。</p>
-<h2 id="float-left"><a href="#float-left" class="headerlink" title="float:left"></a>float:left</h2><p>1.浮动 2.改行级元素为块级元素</p>
-<h3 id="清除上级元素浮动"><a href="#清除上级元素浮动" class="headerlink" title="清除上级元素浮动"></a>清除上级元素浮动</h3><p>clear:both clear:left clear:right</p>
-<h3 id="overflow-触发-bfc-清除下级元素浮动影响"><a href="#overflow-触发-bfc-清除下级元素浮动影响" class="headerlink" title="overflow 触发 bfc 清除下级元素浮动影响"></a>overflow 触发 bfc 清除下级元素浮动影响</h3><p>overflow：hidden,auto,scroll<br>触发后父级元素就会触发 float 元素的尺寸</p>
-<h3 id="页面布局的最高准则"><a href="#页面布局的最高准则" class="headerlink" title="页面布局的最高准则"></a>页面布局的最高准则</h3><h2 id="有相关性的元素就放到一组，大组套小组"><a href="#有相关性的元素就放到一组，大组套小组" class="headerlink" title="有相关性的元素就放到一组，大组套小组"></a>有相关性的元素就放到一组，大组套小组</h2><p>布局时使用 height,padding,margin 一般会舍弃 height，使用 padding 和 margin 来撑</p>
-<h3 id="shape-outside"><a href="#shape-outside" class="headerlink" title="shape-outside"></a>shape-outside</h3><p>用来做文字环绕,配合 clip-path 使用可以根据图形和图片（png）的形状进行环绕</p>
-
+        
       
 
       
@@ -239,7 +231,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/29/float/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/12/17/%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -253,18 +245,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/29/CSSposition/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CSSposition
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/28/CSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CSS盒子模型</div>
+    <a href="/2020/10/27/scope/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">scope</div>
       <i class="icon-circle-right"></i>
     </a>
   
