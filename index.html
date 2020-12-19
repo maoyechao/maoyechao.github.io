@@ -152,6 +152,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="原始值与引用值"><a href="#原始值与引用值" class="headerlink" title="原始值与引用值"></a>原始值与引用值</h3><p>基本数据类型为原始值，复杂数据类型为引用值。<br>js 不能直接访问内存位置，所以操作的是对象的引用（reference）。<br>引用值能加属性，但是原始值不能，一个特例，new String(‘Test’)能加属性，它变成了一个 Object.<br>原始值复制创建新的变量与位置，引用值内存地址不变，只是新增了一个指针，名称为变量名。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addAttri</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">obj.name = <span class="string">'mao'</span>;</span><br><span class="line">obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj.name = <span class="string">'yechao'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">//yechao</span></span><br><span class="line">&#125;</span><br><span class="line">addAttri(a);</span><br><span class="line"><span class="built_in">console</span>.log(a.name) <span class="comment">//mao</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/12/17/%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98/#more">more >></a>
         
       
 
@@ -160,6 +164,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">变量</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">作用域</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">内存</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -1012,6 +1035,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">努力</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">变量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">作用域</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">内存</a>
               </li>
             
             <div class="clearfix"></div>

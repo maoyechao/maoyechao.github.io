@@ -8,14 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>变量、作用域与内存 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="变量原始值与引用值基本数据类型为原始值，复杂数据类型为引用值。js 不能直接访问内存位置，所以操作的是对象的引用（reference）。引用值能加属性，但是原始值不能，一个特例，new String(‘Test’)能加属性，它变成了一个 Object.原始值复制创建新的变量与位置，引用值内存地址不变，只是新增了一个指针，名称为变量名。 123456789let a &#x3D; new Object();f">
+<meta property="og:type" content="article">
 <meta property="og:title" content="变量、作用域与内存">
 <meta property="og:url" content="http://yoursite.com/2020/12/17/%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="变量原始值与引用值基本数据类型为原始值，复杂数据类型为引用值。js 不能直接访问内存位置，所以操作的是对象的引用（reference）。引用值能加属性，但是原始值不能，一个特例，new String(‘Test’)能加属性，它变成了一个 Object.原始值复制创建新的变量与位置，引用值内存地址不变，只是新增了一个指针，名称为变量名。 123456789let a &#x3D; new Object();f">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-17T10:13:59.000Z">
-<meta property="article:modified_time" content="2020-12-17T10:13:59.227Z">
+<meta property="article:modified_time" content="2020-12-19T07:08:58.658Z">
 <meta property="article:author" content="北行四十一米">
+<meta property="article:tag" content="变量">
+<meta property="article:tag" content="作用域">
+<meta property="article:tag" content="内存">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -152,7 +157,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="原始值与引用值"><a href="#原始值与引用值" class="headerlink" title="原始值与引用值"></a>原始值与引用值</h3><p>基本数据类型为原始值，复杂数据类型为引用值。<br>js 不能直接访问内存位置，所以操作的是对象的引用（reference）。<br>引用值能加属性，但是原始值不能，一个特例，new String(‘Test’)能加属性，它变成了一个 Object.<br>原始值复制创建新的变量与位置，引用值内存地址不变，只是新增了一个指针，名称为变量名。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addAttri</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">obj.name = <span class="string">'mao'</span>;</span><br><span class="line">obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj.name = <span class="string">'yechao'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">//yechao</span></span><br><span class="line">&#125;</span><br><span class="line">addAttri(a);</span><br><span class="line"><span class="built_in">console</span>.log(a.name) <span class="comment">//mao</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><h3 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h3><p>未经声明就初始化的变量是全局变量，严格模式下会报错。<br>var 是函数作用域<br>变量提升，可以用 console.log 打印变量，如果是没有声明就打印出现 undefined，就说明产生了变量提升。<br>let 是块级作用域<br>var 声明两次只会忽略，而 let 声明两次会报错。<br>const 声明必须同时初始化。<br>cosnt 声明可以是对象，对象的键可以增减或修改，但是如果声明时添加了 const obj = Object.freeze();则不能修改键。<br>由于 const 声明变量的值不可修改，所以一些浏览器会把引用值变成原始值，只是一种优化。<br>并且他们在块作用域中比 var 更早进入垃圾回收机制中。<br>引用值的删除：=null，之后会进入垃圾回收程序。</p>
+
       
 
       
@@ -181,6 +192,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">变量</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">作用域</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">内存</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -450,6 +480,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">努力</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">变量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">作用域</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">内存</a>
               </li>
             
             <div class="clearfix"></div>
